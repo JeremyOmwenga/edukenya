@@ -6,4 +6,5 @@ def login_view(request):
     return render(request, 'landing/login.html')
 def signup_view(request):
     return render(request, 'landing/signup.html')
-
+def how_view(request):
+    return render(request, 'landing/how.html')
