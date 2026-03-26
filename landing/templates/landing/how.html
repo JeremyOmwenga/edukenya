@@ -1,0 +1,443 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How it Works — Elimu</title>
+  <link rel="stylesheet" href="{% static 'landing/css/style.css' %}">
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">elim<span>u</span></a>
+  <div class="nav-links">
+    <a href="/login/" class="btn">Log in</a>
+    <a href="/signup/" class="btn btn-primary">Sign up</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <p class="page-eyebrow">How it works</p>
+  <h1>Built differently,<br>by design.</h1>
+  <p class="page-sub">
+    Elimu is not a content library. It is a system that maps what each
+    student knows, finds the gaps, and closes them — automatically.
+    Here is exactly how.
+  </p>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+  <a href="#dag" class="toc-item">
+    <span class="toc-num">01</span>
+    <span>Knowledge graph</span>
+  </a>
+  <a href="#rag" class="toc-item">
+    <span class="toc-num">02</span>
+    <span>RAG pipeline</span>
+  </a>
+  <a href="#progress" class="toc-item">
+    <span class="toc-num">03</span>
+    <span>Progress monitor</span>
+  </a>
+  <a href="#tenancy" class="toc-item">
+    <span class="toc-num">04</span>
+    <span>Data isolation</span>
+  </a>
+</div>
+
+<!-- ── SECTION 1: DAG ── -->
+<section class="hiw-section" id="dag">
+  <div class="hiw-inner">
+
+    <div class="hiw-header">
+      <span class="section-num">01</span>
+      <div>
+        <span class="section-tag">Knowledge graph</span>
+        <h2>The DAG — a map of what each student knows</h2>
+        <p class="section-intro">
+          Every student has a personal <strong>Directed Acyclic Graph (DAG)</strong> — a living map
+          of the CBC curriculum where each node is a concept and each edge is a
+          prerequisite relationship. A concept only unlocks when every concept it
+          depends on has been mastered. Not attempted. Mastered.
+        </p>
+      </div>
+    </div>
+
+    <!-- DAG VISUAL -->
+    <div class="visual-box">
+      <p class="visual-label">Grade 7 Mathematics — Integers strand</p>
+      <svg viewBox="0 0 700 320" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; display:block;">
+
+        <!-- mastered edges -->
+        <line x1="350" y1="40" x2="175" y2="120" stroke="#16a34a" stroke-width="1.5"/>
+        <line x1="350" y1="40" x2="350" y2="120" stroke="#16a34a" stroke-width="1.5"/>
+        <line x1="350" y1="40" x2="525" y2="120" stroke="#16a34a" stroke-width="1.5"/>
+        <line x1="175" y1="148" x2="263" y2="228" stroke="#16a34a" stroke-width="1.5"/>
+        <line x1="350" y1="148" x2="263" y2="228" stroke="#16a34a" stroke-width="1.5"/>
+
+        <!-- active edges (dashed) -->
+        <line x1="263" y1="256" x2="437" y2="256" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="5 3"/>
+        <line x1="525" y1="148" x2="525" y2="228" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="5 3"/>
+
+        <!-- locked edges -->
+        <line x1="437" y1="256" x2="613" y2="256" stroke="#cbd5e1" stroke-width="1.5"/>
+        <line x1="525" y1="256" x2="613" y2="256" stroke="#cbd5e1" stroke-width="1.5"/>
+
+        <!-- ROOT -->
+        <circle cx="350" cy="26" r="22" fill="#16a34a"/>
+        <text x="350" y="23" text-anchor="middle" fill="white" font-size="8" font-weight="600">Number</text>
+        <text x="350" y="33" text-anchor="middle" fill="white" font-size="8" font-weight="600">Line</text>
+
+        <!-- ROW 2 mastered -->
+        <circle cx="175" cy="134" r="22" fill="#16a34a"/>
+        <text x="175" y="131" text-anchor="middle" fill="white" font-size="8" font-weight="600">Adding</text>
+        <text x="175" y="141" text-anchor="middle" fill="white" font-size="8" font-weight="600">Integers</text>
+
+        <circle cx="350" cy="134" r="22" fill="#16a34a"/>
+        <text x="350" y="131" text-anchor="middle" fill="white" font-size="8" font-weight="600">Subtracting</text>
+        <text x="350" y="141" text-anchor="middle" fill="white" font-size="8" font-weight="600">Integers</text>
+
+        <circle cx="525" cy="134" r="22" fill="#16a34a"/>
+        <text x="525" y="131" text-anchor="middle" fill="white" font-size="8" font-weight="600">Absolute</text>
+        <text x="525" y="141" text-anchor="middle" fill="white" font-size="8" font-weight="600">Value</text>
+
+        <!-- ROW 3 -->
+        <circle cx="263" cy="242" r="22" fill="#16a34a"/>
+        <text x="263" y="239" text-anchor="middle" fill="white" font-size="8" font-weight="600">Mixed</text>
+        <text x="263" y="249" text-anchor="middle" fill="white" font-size="8" font-weight="600">Operations</text>
+
+        <!-- ACTIVE -->
+        <circle cx="437" cy="242" r="24" fill="#2563eb"/>
+        <circle cx="437" cy="242" r="28" fill="none" stroke="#2563eb" stroke-width="2" opacity="0.2"/>
+        <text x="437" y="238" text-anchor="middle" fill="white" font-size="8" font-weight="600">Word</text>
+        <text x="437" y="248" text-anchor="middle" fill="white" font-size="8" font-weight="600">Problems</text>
+        <text x="437" y="276" text-anchor="middle" fill="#2563eb" font-size="7.5" font-weight="600">IN PROGRESS</text>
+
+        <circle cx="525" cy="242" r="22" fill="#93c5fd" opacity="0.5"/>
+        <text x="525" y="239" text-anchor="middle" fill="#1e40af" font-size="8" font-weight="600">Integer</text>
+        <text x="525" y="249" text-anchor="middle" fill="#1e40af" font-size="8" font-weight="600">Patterns</text>
+
+        <!-- LOCKED -->
+        <circle cx="613" cy="242" r="22" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+        <text x="613" y="239" text-anchor="middle" fill="#94a3b8" font-size="8" font-weight="600">Fractions</text>
+        <text x="613" y="252" text-anchor="middle" fill="#94a3b8" font-size="10">🔒</text>
+
+        <!-- legend -->
+        <circle cx="30" cy="290" r="6" fill="#16a34a"/>
+        <text x="42" y="294" fill="#555" font-size="9">Mastered</text>
+        <circle cx="105" cy="290" r="6" fill="#2563eb"/>
+        <text x="117" y="294" fill="#555" font-size="9">In progress</text>
+        <circle cx="190" cy="290" r="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+        <text x="202" y="294" fill="#555" font-size="9">Locked</text>
+      </svg>
+    </div>
+
+    <!-- DAG EXPLAINER CARDS -->
+    <div class="explainer-grid">
+      <div class="explainer-card">
+        <div class="explainer-icon">→</div>
+        <h4>Prerequisites enforced</h4>
+        <p>A student cannot reach <em>Word Problems</em> without first mastering <em>Adding</em>, <em>Subtracting</em>, and <em>Mixed Operations</em>. The graph enforces this automatically — no teacher configuration needed.</p>
+      </div>
+      <div class="explainer-card">
+        <div class="explainer-icon">⚖</div>
+        <h4>Weighted mastery scoring</h4>
+        <p>Each concept ends with a 3-question quiz. Q1 tests recall (20%), Q2 tests application (30%), Q3 tests reasoning (50%). A student must score 80% or above to unlock the next concept. Getting easy questions right is not enough.</p>
+      </div>
+      <div class="explainer-card">
+        <div class="explainer-icon">↗</div>
+        <h4>Automatic unlocking</h4>
+        <p>When a student passes a quiz, the system immediately checks every downstream concept. Any concept whose prerequisites are now all mastered switches from <em>locked</em> to <em>available</em> — without teacher input.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── SECTION 2: RAG ── -->
+<section class="hiw-section hiw-alt" id="rag">
+  <div class="hiw-inner">
+
+    <div class="hiw-header">
+      <span class="section-num">02</span>
+      <div>
+        <span class="section-tag">RAG pipeline</span>
+        <h2>AI that explains the exact gap, not a generic recap</h2>
+        <p class="section-intro">
+          When a student fails a quiz, the system does not simply show them the
+          same content again. It uses a <strong>Retrieval-Augmented Generation (RAG)</strong>
+          pipeline to build a personalised re-explanation — anchored to the CBC
+          syllabus, targeted at the specific questions they got wrong.
+        </p>
+      </div>
+    </div>
+
+    <!-- RAG FLOW -->
+    <div class="flow-diagram">
+      <div class="flow-step">
+        <div class="flow-icon fail">✗</div>
+        <div class="flow-text">
+          <strong>Student fails quiz</strong>
+          <span>e.g. Gets Q2 and Q3 wrong on "Word Problems"</span>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">
+        <div class="flow-icon search">⌕</div>
+        <div class="flow-text">
+          <strong>Knowledge base retrieval</strong>
+          <span>System finds the most semantically relevant content chunks from the CBC curriculum using vector similarity search</span>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">
+        <div class="flow-icon build">◈</div>
+        <div class="flow-text">
+          <strong>Prompt is assembled</strong>
+          <span>The concept body, retrieved chunks, student's wrong answers, and attempt number are combined into a targeted prompt</span>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">
+        <div class="flow-icon gen">✦</div>
+        <div class="flow-text">
+          <strong>Explanation is generated</strong>
+          <span>The AI produces a new explanation — using Kenyan everyday examples, CBC language, and the student's specific misconceptions as anchors</span>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">
+        <div class="flow-icon retry">↺</div>
+        <div class="flow-text">
+          <strong>Student re-reads and retries</strong>
+          <span>On each subsequent failure the explanation goes deeper. By attempt 3 it starts from the foundational prerequisite, not the concept itself</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="explainer-grid">
+      <div class="explainer-card">
+        <div class="explainer-icon">📌</div>
+        <h4>Always CBC-anchored</h4>
+        <p>Generated content never introduces concepts outside the CBC syllabus for that grade level. The retrieval step ensures the explanation stays within the curriculum boundary.</p>
+      </div>
+      <div class="explainer-card">
+        <div class="explainer-icon">⚡</div>
+        <h4>Pre-generated in background</h4>
+        <p>The moment a quiz result is returned, the system begins generating the remedial content in the background. By the time a student clicks "Try again" the explanation is ready — no waiting.</p>
+      </div>
+      <div class="explainer-card">
+        <div class="explainer-icon">📈</div>
+        <h4>Gets smarter over time</h4>
+        <p>Every AI-generated explanation that led to a student mastering a concept is logged. This data is used to fine-tune the underlying model on explanations that actually work for Kenyan students.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── SECTION 3: PROGRESS MONITOR ── -->
+<section class="hiw-section" id="progress">
+  <div class="hiw-inner">
+
+    <div class="hiw-header">
+      <span class="section-num">03</span>
+      <div>
+        <span class="section-tag">Progress monitor</span>
+        <h2>Teachers see who needs help before the end of term</h2>
+        <p class="section-intro">
+          The teacher dashboard is not a report. It is an <strong>intervention queue</strong>.
+          The system runs continuously in the background — scanning every student's
+          activity, detecting patterns that signal a student is in trouble, and surfacing
+          specific recommended actions.
+        </p>
+      </div>
+    </div>
+
+    <!-- INTERVENTION TABLE MOCK -->
+    <div class="visual-box" style="padding: 0; overflow: hidden;">
+      <div class="mock-toolbar">
+        <span class="mock-title">Grade 7 North — Mathematics · Term 2 2025</span>
+        <span class="mock-badge">4 open flags</span>
+      </div>
+      <table class="mock-table">
+        <thead>
+          <tr>
+            <th>Student</th>
+            <th>Stuck on</th>
+            <th>Signal</th>
+            <th>Priority</th>
+            <th>Recommended action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="row-high">
+            <td><strong>Faridah M.</strong></td>
+            <td>Word Problems</td>
+            <td>Failed 4 times, score declining</td>
+            <td><span class="badge badge-high">High</span></td>
+            <td>Review 1-on-1 with student</td>
+          </tr>
+          <tr class="row-med">
+            <td><strong>Brian O.</strong></td>
+            <td>Mixed Operations</td>
+            <td>Passes Q1 & Q2, always fails Q3</td>
+            <td><span class="badge badge-med">Medium</span></td>
+            <td>Reasoning gap — deeper practice</td>
+          </tr>
+          <tr class="row-med">
+            <td><strong>Amina W.</strong></td>
+            <td>—</td>
+            <td>No activity for 5 days</td>
+            <td><span class="badge badge-med">Medium</span></td>
+            <td>Contact parent / guardian</td>
+          </tr>
+          <tr class="row-low">
+            <td><strong>Kevin N.</strong></td>
+            <td>Adding Integers</td>
+            <td>Weak prerequisite (Number Line: 81%)</td>
+            <td><span class="badge badge-low">Low</span></td>
+            <td>Revisit Number Line concept</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="explainer-grid" style="margin-top: 2rem;">
+      <div class="explainer-card">
+        <div class="explainer-icon">🔍</div>
+        <h4>7 automatic flag types</h4>
+        <p>Repeated failure, prerequisite gap, no activity, score regression, low engagement, unusually fast completion, and consistent reasoning failure — all detected automatically, no teacher setup.</p>
+      </div>
+      <div class="explainer-card">
+        <div class="explainer-icon">🗺</div>
+        <h4>Class heatmap</h4>
+        <p>A colour-coded grid of every concept versus every student. Green means mastered, amber means in progress, red means stuck. A teacher can see the entire class's knowledge state in one view.</p>
+      </div>
+      <div class="explainer-card">
+        <div class="explainer-icon">✏</div>
+        <h4>Custom learning paths</h4>
+        <p>Teachers can override the graph's default path for any student — for example, routing a student who missed two weeks back to an earlier concept — with a stated reason that is logged.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── SECTION 4: TENANCY ── -->
+<section class="hiw-section hiw-alt" id="tenancy">
+  <div class="hiw-inner">
+
+    <div class="hiw-header">
+      <span class="section-num">04</span>
+      <div>
+        <span class="section-tag">Data isolation</span>
+        <h2>Every school's data is completely isolated</h2>
+        <p class="section-intro">
+          Elimu uses a <strong>schema-per-tenant</strong> architecture. When a school joins the
+          platform, a dedicated PostgreSQL schema is created for them. Their students,
+          teachers, progress data, and intervention records never share a database
+          table with any other school.
+        </p>
+      </div>
+    </div>
+
+    <!-- TENANCY DIAGRAM -->
+    <div class="visual-box">
+      <p class="visual-label">Database architecture — schema-per-tenant</p>
+      <svg viewBox="0 0 680 260" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; display:block;">
+
+        <!-- shared layer -->
+        <rect x="160" y="10" width="360" height="50" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+        <text x="340" y="31" text-anchor="middle" fill="#15803d" font-size="9" font-weight="600">SHARED SCHEMA</text>
+        <text x="340" y="46" text-anchor="middle" fill="#16a34a" font-size="8">CBC Curriculum · Subjects · Concepts · Questions</text>
+
+        <!-- arrow down -->
+        <line x1="340" y1="60" x2="340" y2="90" stroke="#cbd5e1" stroke-width="1.5"/>
+        <text x="340" y="82" text-anchor="middle" fill="#94a3b8" font-size="8">Each school gets its own schema</text>
+
+        <!-- school schemas -->
+        <rect x="20" y="100" width="180" height="140" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+        <text x="110" y="120" text-anchor="middle" fill="#1d4ed8" font-size="9" font-weight="700">school_nairobi</text>
+        <text x="110" y="136" text-anchor="middle" fill="#3b82f6" font-size="7.5">Nairobi Academy</text>
+        <line x1="40" y1="145" x2="180" y2="145" stroke="#bfdbfe" stroke-width="1"/>
+        <text x="110" y="160" text-anchor="middle" fill="#555" font-size="7.5">Students · Teachers</text>
+        <text x="110" y="173" text-anchor="middle" fill="#555" font-size="7.5">Progress · Flags</text>
+        <text x="110" y="186" text-anchor="middle" fill="#555" font-size="7.5">Interventions · Paths</text>
+        <text x="110" y="199" text-anchor="middle" fill="#555" font-size="7.5">Snapshots · Logs</text>
+        <rect x="40" y="210" width="140" height="20" rx="3" fill="#dbeafe"/>
+        <text x="110" y="224" text-anchor="middle" fill="#1d4ed8" font-size="7.5" font-weight="600">nairobi-academy.elimu.co.ke</text>
+
+        <rect x="250" y="100" width="180" height="140" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+        <text x="340" y="120" text-anchor="middle" fill="#1d4ed8" font-size="9" font-weight="700">school_mombasa</text>
+        <text x="340" y="136" text-anchor="middle" fill="#3b82f6" font-size="7.5">Coast Girls High</text>
+        <line x1="270" y1="145" x2="410" y2="145" stroke="#bfdbfe" stroke-width="1"/>
+        <text x="340" y="160" text-anchor="middle" fill="#555" font-size="7.5">Students · Teachers</text>
+        <text x="340" y="173" text-anchor="middle" fill="#555" font-size="7.5">Progress · Flags</text>
+        <text x="340" y="186" text-anchor="middle" fill="#555" font-size="7.5">Interventions · Paths</text>
+        <text x="340" y="199" text-anchor="middle" fill="#555" font-size="7.5">Snapshots · Logs</text>
+        <rect x="270" y="210" width="140" height="20" rx="3" fill="#dbeafe"/>
+        <text x="340" y="224" text-anchor="middle" fill="#1d4ed8" font-size="7.5" font-weight="600">coast-girls.elimu.co.ke</text>
+
+        <rect x="480" y="100" width="180" height="140" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+        <text x="570" y="120" text-anchor="middle" fill="#1d4ed8" font-size="9" font-weight="700">school_kisumu</text>
+        <text x="570" y="136" text-anchor="middle" fill="#3b82f6" font-size="7.5">Kisumu Boys</text>
+        <line x1="500" y1="145" x2="640" y2="145" stroke="#bfdbfe" stroke-width="1"/>
+        <text x="570" y="160" text-anchor="middle" fill="#555" font-size="7.5">Students · Teachers</text>
+        <text x="570" y="173" text-anchor="middle" fill="#555" font-size="7.5">Progress · Flags</text>
+        <text x="570" y="186" text-anchor="middle" fill="#555" font-size="7.5">Interventions · Paths</text>
+        <text x="570" y="199" text-anchor="middle" fill="#555" font-size="7.5">Snapshots · Logs</text>
+        <rect x="500" y="210" width="140" height="20" rx="3" fill="#dbeafe"/>
+        <text x="570" y="224" text-anchor="middle" fill="#1d4ed8" font-size="7.5" font-weight="600">kisumu-boys.elimu.co.ke</text>
+
+        <!-- connecting lines from shared to schemas -->
+        <line x1="240" y1="60" x2="110" y2="100" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4 2"/>
+        <line x1="340" y1="60" x2="340" y2="100" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4 2"/>
+        <line x1="440" y1="60" x2="570" y2="100" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4 2"/>
+
+        <!-- isolation badge -->
+        <rect x="270" y="248" width="140" height="18" rx="9" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+        <text x="340" y="261" text-anchor="middle" fill="#92400e" font-size="7.5" font-weight="600">Zero cross-school data access</text>
+      </svg>
+    </div>
+
+    <div class="explainer-grid" style="margin-top:2rem;">
+      <div class="explainer-card">
+        <div class="explainer-icon">🏫</div>
+        <h4>One subdomain per school</h4>
+        <p>Each school accesses the platform at their own subdomain — e.g. <code>nairobi-academy.elimu.co.ke</code>. Requests are automatically routed to that school's schema. No configuration needed by the school.</p>
+      </div>
+      <div class="explainer-card">
+        <div class="explainer-icon">🔒</div>
+        <h4>Strict data boundaries</h4>
+        <p>A teacher at one school cannot see — even accidentally — the students, scores, or flags from another school. The isolation is enforced at the database level, not just the application level.</p>
+      </div>
+      <div class="explainer-card">
+        <div class="explainer-icon">📚</div>
+        <h4>Shared curriculum, separate data</h4>
+        <p>The CBC curriculum content — concepts, questions, strands — lives in a shared schema accessible to all schools. Only student activity data is isolated. This means curriculum updates apply everywhere instantly.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="hiw-cta">
+  <h2>Ready to bring this to your school?</h2>
+  <p>Pilots are open for Grade 7 Mathematics. One teacher, one class, one term.</p>
+  <div class="hero-btns" style="justify-content:center; margin-top:1.75rem;">
+    <a href="/signup/" class="btn btn-primary btn-lg">Apply for a pilot</a>
+    <a href="/login/" class="btn btn-lg">Log in</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Elimu · CBC-aligned AI learning · Kenya</p>
+</footer>
+
+</body>
+</html>
