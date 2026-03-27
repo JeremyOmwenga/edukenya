@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log in — Elimu</title>
+  <link rel="stylesheet" href="{% static 'landing/css/style.css' %}">
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">elim<span>u</span></a>
+  <div class="nav-links">
+    <a href="/signup/" class="btn btn-primary">Sign up</a>
+  </div>
+</nav>
+
+<div class="auth-page">
+  <div class="auth-card">
+    <h2>Welcome back</h2>
+    <p class="sub">Log in to your Elimu account.</p>
+
+    <form method="post" action="/login/">
+      {% csrf_token %}
+
+      {% if form.non_field_errors %}
+        <div class="form-error">{{ form.non_field_errors.0 }}</div>
+      {% endif %}
+
+      <label for="id_email">Email</label>
+      <input type="email" name="email" id="id_email"
+             value="{{ form.email.value|default:'' }}"
+             placeholder="you@school.ac.ke" required>
+
+      <label for="id_password">Password</label>
+      <input type="password" name="password" id="id_password"
+             placeholder="••••••••" required>
+
+      <button type="submit" class="btn btn-primary" style="width:100%; margin-top:0.5rem;">
+        Log in
+      </button>
+    </form>
+
+    <p style="margin-top:1.25rem; font-size:0.78rem;">
+      Don't have an account? <a href="/signup/" class="text-link">Sign up</a>
+    </p>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 Elimu · CBC-aligned AI learning · Kenya</p>
+</footer>
+
+</body>
+</html>

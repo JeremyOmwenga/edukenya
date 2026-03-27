@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — Elimu</title>
+  <link rel="stylesheet" href="{% static 'landing/css/style.css' %}">
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">elim<span>u</span></a>
+  <div class="nav-links">
+    <a href="/logout/" class="btn">Log out</a>
+  </div>
+</nav>
+
+<div style="max-width:640px; margin:5rem auto; padding:0 1.5rem; text-align:center;">
+  <h1 style="font-size:1.75rem; font-weight:700; margin-bottom:0.75rem;">
+    Welcome, {{ request.user.name }}
+  </h1>
+  <p style="color:#555; font-size:0.95rem;">
+    You are logged in as <strong>{{ request.user.get_role_display }}</strong>.
+    Dashboard coming soon.
+  </p>
+</div>
+
+<footer>
+  <p>© 2025 Elimu · CBC-aligned AI learning · Kenya</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verification failed — Elimu</title>
+  <link rel="stylesheet" href="{% static 'landing/css/style.css' %}">
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">elim<span>u</span></a>
+</nav>
+
+<div class="auth-page">
+  <div class="auth-card" style="text-align:center; max-width:460px;">
+    <div style="font-size:2.5rem; margin-bottom:1rem;">⚠️</div>
+    <h2>Verification failed</h2>
+    <p class="sub">{{ message }}</p>
+    <a href="/signup/" class="btn btn-primary" style="margin-top:1.5rem; display:inline-block;">
+      Sign up again
+    </a>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 Elimu · CBC-aligned AI learning · Kenya</p>
+</footer>
+
+</body>
+</html>

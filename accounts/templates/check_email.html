@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Check your email — Elimu</title>
+  <link rel="stylesheet" href="{% static 'landing/css/style.css' %}">
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">elim<span>u</span></a>
+</nav>
+
+<div class="auth-page">
+  <div class="auth-card" style="text-align:center; max-width:460px;">
+    <div style="font-size:2.5rem; margin-bottom:1rem;">📬</div>
+    <h2>Check your inbox</h2>
+    <p class="sub" style="margin-bottom:0;">
+      We sent a confirmation link to your email address.
+      Click it to activate your account.
+    </p>
+    <p style="margin-top:1.25rem; font-size:0.78rem; color:#999; line-height:1.7;">
+      The link expires in 24 hours.<br>
+      Check your spam folder if you don't see it.
+    </p>
+    <div style="margin-top:2rem; padding-top:1.5rem; border-top:1px solid #eee;">
+      <p style="font-size:0.78rem; color:#777;">
+        Wrong email? <a href="/signup/" class="text-link">Sign up again</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 Elimu · CBC-aligned AI learning · Kenya</p>
+</footer>
+
+</body>
+</html>
