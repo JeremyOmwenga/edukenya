@@ -25,14 +25,10 @@ class UserManager(BaseUserManager):
 
 class User(AbstractBaseUser, PermissionsMixin):
 
-    ROLE_CHOICES = [
-        ('teacher', 'Teacher'),
-        ('admin',   'School Administrator'),
-    ]
+   
 
     email             = models.EmailField(unique=True)
     name              = models.CharField(max_length=150)
-    role              = models.CharField(max_length=20, choices=ROLE_CHOICES)
     is_email_verified = models.BooleanField(default=False)
     is_active         = models.BooleanField(default=False)  # False until email confirmed
     is_staff          = models.BooleanField(default=False)
