@@ -6,7 +6,6 @@ from .models import User
 class SignupForm(forms.Form):
     name     = forms.CharField(max_length=150)
     email    = forms.EmailField()
-    role     = forms.ChoiceField(choices=User.ROLE_CHOICES)
     password = forms.CharField(min_length=8, widget=forms.PasswordInput)
 
     def clean_email(self):
