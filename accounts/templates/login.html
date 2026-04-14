@@ -22,11 +22,7 @@
     <p class="sub">Log in to your EduKenya account.</p>
 
     <form method="post" action="/login/">
-      {% csrf_token %}
-
-      {% if form.non_field_errors %}
-        <div class="form-error">{{ form.non_field_errors.0 }}</div>
-      {% endif %}
+      
 
       <label for="id_email">Email</label>
       <input type="email" name="email" id="id_email"
