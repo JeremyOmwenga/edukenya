@@ -1,0 +1,7 @@
+{% load i18n %}{% get_current_language as LANGUAGE_CODE %}
+<form class="lang-toggle" action="{% url 'set_language' %}" method="post" role="group" aria-label="{% translate 'Choose language' %}">
+  {% csrf_token %}
+  <input type="hidden" name="next" value="{{ request.get_full_path }}">
+  <button type="submit" name="language" value="en" lang="en" aria-pressed="{% if LANGUAGE_CODE == 'en' %}true{% else %}false{% endif %}">EN</button>
+  <button type="submit" name="language" value="sw" lang="sw" aria-pressed="{% if LANGUAGE_CODE == 'sw' %}true{% else %}false{% endif %}">SW</button>
+</form>

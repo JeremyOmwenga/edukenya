@@ -1,0 +1,35 @@
+{% extends "console/base.html" %}
+{% block page_title %}Schools{% endblock %}
+{% block content %}
+<h1>Schools</h1>
+<p class="help">Suspending a school blocks every page on its web address immediately, for every user. Nothing is deleted.</p>
+<div class="table-wrap">
+<table class="data-table">
+  <thead><tr><th scope="col">School</th><th scope="col">KNEC</th><th scope="col">Web address</th><th scope="col">Status</th><th scope="col">Action</th></tr></thead>
+  <tbody>
+  {% for school in page %}
+    <tr>
+      <td>{{ school.name }}<br><small>{{ school.county }} &middot; since {{ school.created_at|date:"Y-m-d" }}</small></td>
+      <td>{{ school.knec_code }}</td>
+      <td>{% for d in school.domains.all %}{{ d.domain }}{% if not forloop.last %}<br>{% endif %}{% endfor %}</td>
+      <td><span class="pill pill-{{ school.status }}">{{ school.get_status_display }}</span>{% if school.status_reason %}<br><small>{{ school.status_reason }}</small>{% endif %}</td>
+      <td>
+        <details>
+          <summary>{% if school.status == "active" %}Suspend{% else %}Reactivate{% endif %}</summary>
+          <form method="post" action="{% if school.status == 'active' %}{% url 'console:school_set_status' school.pk 'suspended' %}{% else %}{% url 'console:school_set_status' school.pk 'active' %}{% endif %}" class="inline-form">
+            {% csrf_token %}
+            <label for="reason-{{ school.pk }}">Reason</label>
+            <textarea id="reason-{{ school.pk }}" name="reason" rows="2" required minlength="5"></textarea>
+            <button type="submit" class="btn btn-sm {% if school.status == 'active' %}btn-danger{% else %}btn-primary{% endif %}">Confirm</button>
+          </form>
+        </details>
+      </td>
+    </tr>
+  {% empty %}
+    <tr><td colspan="5">No schools yet.</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% include "console/_pager.html" %}
+{% endblock %}

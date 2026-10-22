@@ -1,0 +1,12 @@
+{% load i18n %}{% autoescape off %}{% translate "Hello," %}
+
+{% translate "Someone just tried to register a school on EduKenya using this email address, but it is already linked to a school application." %}
+
+{% translate "If this was you and you still need to confirm your email, you can get a new link here:" %}
+
+{{ resend_link }}
+
+{% translate "If this was not you, you can ignore this email. Nothing has changed." %}
+
+EduKenya
+{% endautoescape %}

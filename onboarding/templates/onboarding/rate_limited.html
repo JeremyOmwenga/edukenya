@@ -1,0 +1,15 @@
+{% extends "public_base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Please wait a moment" %} | EduKenya{% endblock %}
+{% block main_class %}page-form{% endblock %}
+{% block content %}
+<div class="container narrow">
+  <div class="message-card">
+    <span class="message-icon mi-sun" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+    </span>
+    <h1>{% translate "Please wait a moment" %}</h1>
+    <p class="lead">{% translate "There have been too many attempts from your connection. Please try again later." %}</p>
+  </div>
+</div>
+{% endblock %}

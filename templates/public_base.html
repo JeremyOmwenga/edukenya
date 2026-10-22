@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_head %}<link rel="stylesheet" href="{% static 'landing/css/style.css' %}">{% endblock %}
+{% block body %}
+{% include "partials/site_header.html" %}
+<main id="main" class="{% block main_class %}{% endblock %}">
+  {% block content %}{% endblock %}
+</main>
+{% include "partials/site_footer.html" %}
+{% endblock %}

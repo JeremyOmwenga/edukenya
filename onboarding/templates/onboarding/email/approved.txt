@@ -1,0 +1,12 @@
+{% load i18n %}{% autoescape off %}{% blocktranslate trimmed with name=app.admin_full_name %}Hello {{ name }},{% endblocktranslate %}
+
+{% blocktranslate trimmed with school=app.school_name %}Good news: {{ school }} has been approved on EduKenya.{% endblocktranslate %}
+
+{% translate "Your school's own web address is ready. Sign in with the email and password you registered with:" %}
+
+{{ link }}
+
+{% translate "Keep this address safe and share it only with your school's teachers, parents and students." %}
+
+EduKenya
+{% endautoescape %}

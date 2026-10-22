@@ -1,3 +1,9 @@
 -r requirements.txt
-# Compiles .po translation files without needing GNU gettext installed (see scripts/compile_messages.py)
+# Compiles/extracts translations without GNU gettext (scripts/*_messages.py)
 polib==1.2.0
+# Validates CloudFormation templates in infra/
+cfn-lint==1.58.0
+# Git hooks: secret scanning and other checks before every commit
+pre-commit==4.7.0
+# Fails CI when a dependency has a known vulnerability
+pip-audit==2.10.1

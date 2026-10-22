@@ -1,0 +1,16 @@
+{% extends "public_base.html" %}
+{% load i18n %}
+{% block title %}{% translate "This link does not work" %} | EduKenya{% endblock %}
+{% block main_class %}page-form{% endblock %}
+{% block content %}
+<div class="container narrow">
+  <div class="message-card">
+    <span class="message-icon mi-coral" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </span>
+    <h1>{% translate "This link does not work" %}</h1>
+    <p class="lead">{% translate "It may have expired, been used already, or a newer link was sent." %}</p>
+    <a class="btn btn-primary" href="{% url 'onboarding:resend' %}">{% translate "Send me a new link" %}</a>
+  </div>
+</div>
+{% endblock %}

@@ -10,94 +10,126 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 # settings.LANGUAGES
+#: edukenya/settings.py
 msgid "English"
 msgstr "Kiingereza"
 
+#: edukenya/settings.py
 msgid "Kiswahili"
 msgstr "Kiswahili"
 
 # Header
+#: school/templates/school/base.html templates/partials/site_header.html
 msgid "Skip to main content"
 msgstr "Ruka hadi maudhui makuu"
 
+#: templates/partials/site_header.html
 msgid "EduKenya home"
 msgstr "Ukurasa mkuu wa EduKenya"
 
+#: templates/partials/site_header.html
 msgid "Main"
 msgstr "Kuu"
 
+#: templates/partials/site_header.html
 msgid "How it works"
 msgstr "Jinsi inavyofanya kazi"
 
+#: templates/partials/site_header.html
 msgid "Features"
 msgstr "Vipengele"
 
+#: templates/partials/site_header.html
 msgid "For schools"
 msgstr "Kwa shule"
 
+#: templates/partials/lang_toggle.html
 msgid "Choose language"
 msgstr "Chagua lugha"
 
+#: landing/templates/landing/index.html
+#: onboarding/templates/onboarding/register.html
+#: templates/partials/site_header.html
 msgid "Register your school"
 msgstr "Sajili shule yako"
 
 # Hero
+#: landing/templates/landing/index.html
 msgid "Made for CBC Grades 7 and 8"
 msgstr "Imeundwa kwa Gredi 7 na 8 za CBC"
 
+#: landing/templates/landing/index.html templates/partials/site_footer.html
 msgid "Learning that fits you."
 msgstr "Masomo yanayokufaa wewe."
 
+#: landing/templates/landing/index.html
 msgid ""
 "EduKenya is a smart learning buddy that explains every CBC topic in a way "
 "that makes sense to you, and checks you really get it before you move on."
 msgstr ""
-"EduKenya ni rafiki mwerevu wa kujifunza anayeeleza kila mada ya CBC kwa "
-"njia unayoielewa, na kuhakikisha umeelewa kweli kabla ya kuendelea."
+"EduKenya ni rafiki mwerevu wa kujifunza anayeeleza kila mada ya CBC kwa njia "
+"unayoielewa, na kuhakikisha umeelewa kweli kabla ya kuendelea."
 
+#: landing/templates/landing/index.html
 msgid "See how it works"
 msgstr "Tazama jinsi inavyofanya kazi"
 
+#: landing/templates/landing/index.html
 msgid "Follows the CBC curriculum"
 msgstr "Inafuata mtaala wa CBC"
 
+#: landing/templates/landing/index.html
 msgid "English and Kiswahili"
 msgstr "Kiingereza na Kiswahili"
 
+#: landing/templates/landing/index.html
 msgid "Students, teachers and parents"
 msgstr "Wanafunzi, walimu na wazazi"
 
+#: landing/templates/landing/index.html
 msgid "A learning map showing topics linked from Grade 6 to Grade 8"
-msgstr "Ramani ya kujifunza inayoonyesha mada zilizounganishwa kutoka Gredi 6 hadi Gredi 8"
+msgstr ""
+"Ramani ya kujifunza inayoonyesha mada zilizounganishwa kutoka Gredi 6 hadi "
+"Gredi 8"
 
+#: landing/templates/landing/index.html
 msgid "Grade 6"
 msgstr "Gredi 6"
 
+#: landing/templates/landing/index.html
 msgid "Grade 7"
 msgstr "Gredi 7"
 
+#: landing/templates/landing/index.html
 msgid "Grade 8"
 msgstr "Gredi 8"
 
+#: landing/templates/landing/index.html
 msgid "Fractions"
 msgstr "Sehemu"
 
+#: landing/templates/landing/index.html
 msgid "Ratios"
 msgstr "Uwiano"
 
+#: landing/templates/landing/index.html
 msgid "Percentages"
 msgstr "Asilimia"
 
+#: landing/templates/landing/index.html
 msgid "Proportion"
 msgstr "Sawia"
 
+#: landing/templates/landing/index.html
 msgid "You are here"
 msgstr "Uko hapa"
 
 # How we are different
+#: landing/templates/landing/index.html
 msgid "Not your usual e-learning"
 msgstr "Si masomo ya mtandaoni ya kawaida"
 
+#: landing/templates/landing/index.html
 msgid ""
 "Most e-learning sites give everyone the same notes and one quiz. EduKenya "
 "works differently."
@@ -105,43 +137,56 @@ msgstr ""
 "Tovuti nyingi za masomo huwapa wote maelezo yale yale na jaribio moja. "
 "EduKenya ni tofauti."
 
+#: landing/templates/landing/index.html
 msgid "Usual e-learning"
 msgstr "Masomo ya kawaida ya mtandaoni"
 
+#: landing/templates/landing/index.html
 msgid "With EduKenya"
 msgstr "Ukiwa na EduKenya"
 
+#: landing/templates/landing/index.html
 msgid "Same notes for every learner"
 msgstr "Maelezo yale yale kwa kila mwanafunzi"
 
+#: landing/templates/landing/index.html
 msgid "One quiz, then move on"
 msgstr "Jaribio moja, kisha unaendelea"
 
+#: landing/templates/landing/index.html
 msgid "Topics feel disconnected"
 msgstr "Mada hazihusiani"
 
+#: landing/templates/landing/index.html
 msgid "Answers from anywhere online"
 msgstr "Majibu kutoka popote mtandaoni"
 
+#: landing/templates/landing/index.html
 msgid "Lessons rewritten to suit how you learn"
 msgstr "Masomo huandikwa upya kulingana na jinsi unavyojifunza"
 
+#: landing/templates/landing/index.html
 msgid "Practise until you truly get it"
 msgstr "Fanya mazoezi hadi uelewe kweli"
 
+#: landing/templates/landing/index.html
 msgid "Every topic links to what comes next"
 msgstr "Kila mada inaunganishwa na inayofuata"
 
+#: landing/templates/landing/index.html
 msgid "Answers only from CBC materials"
 msgstr "Majibu kutoka kwa nyenzo za CBC pekee"
 
 # Features
+#: landing/templates/landing/index.html
 msgid "What makes EduKenya special"
 msgstr "Kinachoifanya EduKenya kuwa ya kipekee"
 
+#: landing/templates/landing/index.html
 msgid "Built on CBC"
 msgstr "Imejengwa juu ya CBC"
 
+#: landing/templates/landing/index.html
 msgid ""
 "Our AI reads only from approved CBC materials, so every answer matches what "
 "you learn in class."
@@ -149,9 +194,11 @@ msgstr ""
 "Akili bandia yetu husoma nyenzo za CBC zilizoidhinishwa pekee, hivyo kila "
 "jibu linalingana na unachojifunza darasani."
 
+#: landing/templates/landing/index.html
 msgid "Explained your way"
 msgstr "Imeelezwa kwa njia yako"
 
+#: landing/templates/landing/index.html
 msgid ""
 "Stuck? Ask for a new explanation. EduKenya rewrites the lesson with simpler "
 "words, examples or pictures."
@@ -159,18 +206,22 @@ msgstr ""
 "Umekwama? Omba maelezo mapya. EduKenya huandika somo upya kwa maneno rahisi, "
 "mifano au picha."
 
+#: landing/templates/landing/index.html
 msgid "Master it, then move on"
 msgstr "Elewa kwanza, kisha endelea"
 
+#: landing/templates/landing/index.html
 msgid ""
 "Each topic has a few short tests. Get them right and the next topic unlocks."
 msgstr ""
 "Kila mada ina majaribio mafupi machache. Ukiyapita, mada inayofuata "
 "inafunguka."
 
+#: landing/templates/landing/index.html
 msgid "Everything connects"
 msgstr "Kila kitu kinaungana"
 
+#: landing/templates/landing/index.html
 msgid ""
 "Topics are linked like a map, so what you learn in Grade 7 leads smoothly "
 "into Grade 8."
@@ -179,37 +230,48 @@ msgstr ""
 "vizuri hadi Gredi 8."
 
 # How it works
+#: landing/templates/landing/index.html
 msgid "How learning works"
 msgstr "Jinsi kujifunza kunavyofanya kazi"
 
+#: landing/templates/landing/index.html
 msgid "Learn"
 msgstr "Jifunze"
 
+#: landing/templates/landing/index.html
 msgid "Read a short lesson made for you."
 msgstr "Soma somo fupi lililoandaliwa kwa ajili yako."
 
+#: landing/templates/landing/index.html
 msgid "Practise"
 msgstr "Fanya mazoezi"
 
+#: landing/templates/landing/index.html
 msgid "Try a few quick questions."
 msgstr "Jaribu maswali machache ya haraka."
 
+#: landing/templates/landing/index.html
 msgid "Get help"
 msgstr "Pata msaada"
 
+#: landing/templates/landing/index.html
 msgid "Not quite? Get a fresh explanation and try again."
 msgstr "Bado hujaelewa? Pata maelezo mapya na ujaribu tena."
 
+#: landing/templates/landing/index.html
 msgid "Level up"
 msgstr "Panda ngazi"
 
+#: landing/templates/landing/index.html
 msgid "Pass and unlock the next topic."
 msgstr "Pita na ufungue mada inayofuata."
 
 # For schools
+#: landing/templates/landing/index.html
 msgid "One place for the whole school"
 msgstr "Mahali pamoja kwa shule nzima"
 
+#: landing/templates/landing/index.html
 msgid ""
 "EduKenya also does the everyday school jobs, so you do not need another "
 "system."
@@ -217,63 +279,484 @@ msgstr ""
 "EduKenya pia hushughulikia kazi za kila siku za shule, hivyo huhitaji mfumo "
 "mwingine."
 
+#: landing/templates/landing/index.html
 msgid "Students"
 msgstr "Wanafunzi"
 
+#: landing/templates/landing/index.html
 msgid "Lessons and tests"
 msgstr "Masomo na majaribio"
 
+#: landing/templates/landing/index.html
 msgid "Assignments"
 msgstr "Kazi za ziada"
 
+#: landing/templates/landing/index.html
 msgid "My grades"
 msgstr "Alama zangu"
 
+#: landing/templates/landing/index.html
 msgid "Teachers"
 msgstr "Walimu"
 
+#: landing/templates/landing/index.html
 msgid "Track each learner's progress"
 msgstr "Fuatilia maendeleo ya kila mwanafunzi"
 
+#: landing/templates/landing/index.html
 msgid "Set and mark assignments"
 msgstr "Toa na usahihishe kazi"
 
+#: landing/templates/landing/index.html
 msgid "Spot who needs help early"
 msgstr "Tambua mapema anayehitaji msaada"
 
+#: landing/templates/landing/index.html
 msgid "Parents"
 msgstr "Wazazi"
 
+#: landing/templates/landing/index.html
 msgid "View grades and reports"
 msgstr "Tazama alama na ripoti"
 
+#: landing/templates/landing/index.html
 msgid "Check fee balances"
 msgstr "Angalia salio la karo"
 
+#: landing/templates/landing/index.html
 msgid "See what your child is learning"
 msgstr "Ona mtoto wako anachojifunza"
 
+#: landing/templates/landing/index.html
 msgid "School admins"
 msgstr "Wasimamizi wa shule"
 
+#: landing/templates/landing/index.html
 msgid "Manage student records"
 msgstr "Simamia rekodi za wanafunzi"
 
+#: landing/templates/landing/index.html
 msgid "Manage fees"
 msgstr "Simamia karo"
 
+#: landing/templates/landing/index.html
 msgid "Add teachers and classes"
 msgstr "Ongeza walimu na madarasa"
 
 # Call to action / footer
+#: landing/templates/landing/index.html
 msgid "Bring EduKenya to your school"
 msgstr "Leta EduKenya shuleni kwako"
 
+#: landing/templates/landing/index.html
 msgid ""
 "Set up your school in a few minutes. Every school gets its own private space."
 msgstr ""
 "Sajili shule yako kwa dakika chache. Kila shule inapata nafasi yake ya "
 "faragha."
 
+#: templates/partials/site_footer.html
 msgid "All rights reserved."
 msgstr "Haki zote zimehifadhiwa."
+
+#: onboarding/emails.py
+msgid "Confirm your email for EduKenya"
+msgstr "Thibitisha barua pepe yako kwa EduKenya"
+
+#: onboarding/emails.py
+msgid "Someone tried to register a school with your email"
+msgstr "Mtu amejaribu kusajili shule kwa barua pepe yako"
+
+#: onboarding/emails.py
+msgid "Your school is approved on EduKenya"
+msgstr "Shule yako imeidhinishwa kwenye EduKenya"
+
+#: onboarding/emails.py
+msgid "Update on your EduKenya school application"
+msgstr "Taarifa kuhusu ombi la shule yako kwenye EduKenya"
+
+#: onboarding/forms.py
+msgid "School name"
+msgstr "Jina la shule"
+
+#: onboarding/forms.py
+msgid "KNEC school code"
+msgstr "Nambari ya shule ya KNEC"
+
+#: onboarding/forms.py
+msgid "The 8 digit code on your KNEC documents."
+msgstr "Nambari ya tarakimu 8 iliyo kwenye nyaraka zako za KNEC."
+
+#: onboarding/forms.py
+msgid "County"
+msgstr "Kaunti"
+
+#: onboarding/forms.py
+msgid "Choose your county"
+msgstr "Chagua kaunti yako"
+
+#: onboarding/forms.py
+msgid "School web address"
+msgstr "Anwani ya tovuti ya shule"
+
+#: onboarding/forms.py
+msgid "Lowercase letters, numbers and hyphens. Example: greenhill"
+msgstr "Herufi ndogo, nambari na vistari. Mfano: greenhill"
+
+#: onboarding/forms.py
+msgid "Your full name"
+msgstr "Jina lako kamili"
+
+#: onboarding/forms.py
+msgid "Your email"
+msgstr "Barua pepe yako"
+
+#: onboarding/forms.py
+msgid "Password"
+msgstr "Nenosiri"
+
+#: onboarding/forms.py
+msgid "At least 10 characters. Avoid common words."
+msgstr "Angalau herufi 10. Epuka maneno ya kawaida."
+
+#: onboarding/forms.py
+msgid "Confirm password"
+msgstr "Thibitisha nenosiri"
+
+#: onboarding/forms.py
+msgid ""
+"A school with this KNEC code is already registered or waiting for approval."
+msgstr ""
+"Shule yenye nambari hii ya KNEC tayari imesajiliwa au inasubiri kuidhinishwa."
+
+#: onboarding/forms.py
+msgid "This web address is taken. Please choose another."
+msgstr "Anwani hii tayari inatumika. Tafadhali chagua nyingine."
+
+#: onboarding/forms.py
+msgid "The two passwords do not match."
+msgstr "Manenosiri mawili hayafanani."
+
+#: onboarding/views.py
+msgid ""
+"Someone just registered with these details. Please check the KNEC code and "
+"web address."
+msgstr ""
+"Mtu amesajili kwa taarifa hizi sasa hivi. Tafadhali kagua nambari ya KNEC na "
+"anwani ya tovuti."
+
+#: onboarding/views.py
+msgid ""
+"We could not send the confirmation email right now. Please try again in a few"
+" minutes."
+msgstr ""
+"Hatukuweza kutuma barua pepe ya uthibitisho sasa hivi. Tafadhali jaribu tena "
+"baada ya dakika chache."
+
+#: onboarding/views.py
+msgid "If that email is waiting for confirmation, we have sent a new link."
+msgstr "Ikiwa barua pepe hiyo inasubiri kuthibitishwa, tumetuma kiungo kipya."
+
+#: school/forms.py
+msgid "Email"
+msgstr "Barua pepe"
+
+#: school/forms.py
+msgid "Incorrect email or password."
+msgstr "Barua pepe au nenosiri si sahihi."
+
+#: templates/403.html
+msgid "Not allowed"
+msgstr "Hairuhusiwi"
+
+#: templates/403_csrf.html
+msgid "Please try again"
+msgstr "Tafadhali jaribu tena"
+
+#: templates/403_csrf.html
+msgid ""
+"Your session expired or the form was out of date. Go back, refresh the page "
+"and try again."
+msgstr ""
+"Muda wako umeisha au fomu imepitwa na wakati. Rudi nyuma, onyesha upya "
+"ukurasa na ujaribu tena."
+
+#: templates/404.html
+msgid "Page not found"
+msgstr "Ukurasa haukupatikana"
+
+#: templates/404.html
+msgid "We could not find what you were looking for."
+msgstr "Hatukuweza kupata ulichokuwa ukitafuta."
+
+#: tenancy/validators.py
+msgid "The KNEC school code must be exactly 8 digits."
+msgstr "Nambari ya shule ya KNEC lazima iwe na tarakimu 8 kamili."
+
+#: tenancy/validators.py
+msgid ""
+"Use 3 to 30 lowercase letters, numbers or hyphens. It cannot start or end "
+"with a hyphen."
+msgstr ""
+"Tumia herufi ndogo, nambari au vistari, kati ya 3 na 30. Haiwezi kuanza wala "
+"kuishia na kistari."
+
+#: tenancy/validators.py
+msgid "The web address cannot contain two hyphens in a row."
+msgstr "Anwani haiwezi kuwa na vistari viwili mfululizo."
+
+#: tenancy/validators.py
+msgid "This web address is reserved. Please choose another."
+msgstr "Anwani hii imehifadhiwa. Tafadhali chagua nyingine."
+
+#: onboarding/templates/onboarding/check_email.html
+msgid "Check your email"
+msgstr "Angalia barua pepe yako"
+
+#: onboarding/templates/onboarding/check_email.html
+msgid "Step 2 of 3"
+msgstr "Hatua 2 kati ya 3"
+
+#: onboarding/templates/onboarding/check_email.html
+msgid ""
+"We have sent a confirmation link to the email you entered. Open it and press "
+"the button to confirm."
+msgstr ""
+"Tumetuma kiungo cha uthibitisho kwa barua pepe uliyoandika. Kifungue na "
+"ubonyeze kitufe ili kuthibitisha."
+
+#: onboarding/templates/onboarding/check_email.html
+msgid ""
+"The link works for 48 hours. Check your spam folder if you cannot see it."
+msgstr "Kiungo kinafanya kazi kwa saa 48. Angalia folda ya spam ikiwa hukioni."
+
+#: onboarding/templates/onboarding/check_email.html
+msgid "Did not get it? Send a new link"
+msgstr "Hukukipata? Tuma kiungo kipya"
+
+#: onboarding/templates/onboarding/rate_limited.html
+msgid "Please wait a moment"
+msgstr "Tafadhali subiri kidogo"
+
+#: onboarding/templates/onboarding/rate_limited.html
+msgid ""
+"There have been too many attempts from your connection. Please try again "
+"later."
+msgstr ""
+"Kumekuwa na majaribio mengi kutoka kwa muunganisho wako. Tafadhali jaribu "
+"tena baadaye."
+
+#: onboarding/templates/onboarding/register.html
+msgid "Step 1 of 3"
+msgstr "Hatua 1 kati ya 3"
+
+#: onboarding/templates/onboarding/register.html
+msgid ""
+"Tell us about your school. We will email you a link to confirm, then our team"
+" reviews and approves your school."
+msgstr ""
+"Tueleze kuhusu shule yako. Tutakutumia kiungo cha kuthibitisha, kisha timu "
+"yetu itakagua na kuidhinisha shule yako."
+
+#: onboarding/templates/onboarding/register.html
+msgid "Please fix the highlighted fields below."
+msgstr "Tafadhali rekebisha sehemu zilizoangaziwa hapa chini."
+
+#: onboarding/templates/onboarding/register.html
+msgid "About the school"
+msgstr "Kuhusu shule"
+
+#: onboarding/templates/onboarding/register.html
+msgid "Your school will live at"
+msgstr "Shule yako itapatikana kwenye"
+
+#: onboarding/templates/onboarding/register.html
+msgid "About you (the school admin)"
+msgstr "Kuhusu wewe (msimamizi wa shule)"
+
+#: onboarding/templates/onboarding/register.html
+msgid "Send confirmation email"
+msgstr "Tuma barua pepe ya uthibitisho"
+
+#: onboarding/templates/onboarding/register.html
+msgid "Already registered but lost the email?"
+msgstr "Umeshasajili lakini umepoteza barua pepe?"
+
+#: onboarding/templates/onboarding/register.html
+msgid "Get a new link"
+msgstr "Pata kiungo kipya"
+
+#: onboarding/templates/onboarding/resend.html
+msgid "Get a new confirmation link"
+msgstr "Pata kiungo kipya cha uthibitisho"
+
+#: onboarding/templates/onboarding/resend.html
+msgid "Enter the email you registered with. Any older links will stop working."
+msgstr ""
+"Andika barua pepe uliyosajili nayo. Viungo vya zamani vitaacha kufanya kazi."
+
+#: onboarding/templates/onboarding/resend.html
+msgid "Send new link"
+msgstr "Tuma kiungo kipya"
+
+#: onboarding/templates/onboarding/verified.html
+msgid "Email confirmed"
+msgstr "Barua pepe imethibitishwa"
+
+#: onboarding/templates/onboarding/verified.html
+msgid "Step 3 of 3"
+msgstr "Hatua 3 kati ya 3"
+
+#: onboarding/templates/onboarding/verified.html
+msgid ""
+"Thank you. Our team is now reviewing your school. We will email you as soon "
+"as it is approved, usually within one working day."
+msgstr ""
+"Asante. Timu yetu sasa inakagua shule yako. Tutakutumia barua pepe mara "
+"itakapoidhinishwa, kwa kawaida ndani ya siku moja ya kazi."
+
+#: onboarding/templates/onboarding/verified.html
+msgid "Back to home"
+msgstr "Rudi mwanzo"
+
+#: onboarding/templates/onboarding/verify_confirm.html
+msgid "Confirm your email"
+msgstr "Thibitisha barua pepe yako"
+
+#: onboarding/templates/onboarding/verify_confirm.html
+msgid "Press the button below to confirm this is your email address."
+msgstr "Bonyeza kitufe hapa chini kuthibitisha kwamba hii ni barua pepe yako."
+
+#: onboarding/templates/onboarding/verify_confirm.html
+msgid "Yes, confirm my email"
+msgstr "Ndiyo, thibitisha barua pepe yangu"
+
+#: onboarding/templates/onboarding/verify_invalid.html
+msgid "This link does not work"
+msgstr "Kiungo hiki hakifanyi kazi"
+
+#: onboarding/templates/onboarding/verify_invalid.html
+msgid "It may have expired, been used already, or a newer link was sent."
+msgstr "Huenda muda wake umeisha, kimeshatumika, au kiungo kipya kimetumwa."
+
+#: onboarding/templates/onboarding/verify_invalid.html
+msgid "Send me a new link"
+msgstr "Nitumie kiungo kipya"
+
+#: onboarding/templates/onboarding/email/already_registered.txt
+msgid "Hello,"
+msgstr "Habari,"
+
+#: onboarding/templates/onboarding/email/already_registered.txt
+msgid ""
+"Someone just tried to register a school on EduKenya using this email address,"
+" but it is already linked to a school application."
+msgstr ""
+"Mtu amejaribu kusajili shule kwenye EduKenya kwa kutumia barua pepe hii, "
+"lakini tayari imeunganishwa na ombi la shule."
+
+#: onboarding/templates/onboarding/email/already_registered.txt
+msgid ""
+"If this was you and you still need to confirm your email, you can get a new "
+"link here:"
+msgstr ""
+"Ikiwa ni wewe na bado unahitaji kuthibitisha barua pepe yako, unaweza kupata "
+"kiungo kipya hapa:"
+
+#: onboarding/templates/onboarding/email/already_registered.txt
+msgid "If this was not you, you can ignore this email. Nothing has changed."
+msgstr "Ikiwa si wewe, unaweza kupuuza barua pepe hii. Hakuna kilichobadilika."
+
+#: onboarding/templates/onboarding/email/approved.txt
+#: onboarding/templates/onboarding/email/rejected.txt
+#: onboarding/templates/onboarding/email/verify.txt
+msgid "Hello %(name)s,"
+msgstr "Habari %(name)s,"
+
+#: onboarding/templates/onboarding/email/approved.txt
+msgid "Good news: %(school)s has been approved on EduKenya."
+msgstr "Habari njema: %(school)s imeidhinishwa kwenye EduKenya."
+
+#: onboarding/templates/onboarding/email/approved.txt
+msgid ""
+"Your school's own web address is ready. Sign in with the email and password "
+"you registered with:"
+msgstr ""
+"Anwani ya tovuti ya shule yako iko tayari. Ingia kwa barua pepe na nenosiri "
+"ulilosajili nalo:"
+
+#: onboarding/templates/onboarding/email/approved.txt
+msgid ""
+"Keep this address safe and share it only with your school's teachers, parents"
+" and students."
+msgstr ""
+"Hifadhi anwani hii vizuri na uishiriki tu na walimu, wazazi na wanafunzi wa "
+"shule yako."
+
+#: onboarding/templates/onboarding/email/rejected.txt
+msgid ""
+"Thank you for applying to bring %(school)s to EduKenya. We were not able to "
+"approve the application this time."
+msgstr ""
+"Asante kwa kuomba kuleta %(school)s kwenye EduKenya. Hatukuweza kuidhinisha "
+"ombi hili kwa sasa."
+
+#: onboarding/templates/onboarding/email/rejected.txt
+msgid "Reason given by our team:"
+msgstr "Sababu iliyotolewa na timu yetu:"
+
+#: onboarding/templates/onboarding/email/rejected.txt
+msgid "You are welcome to apply again once this is resolved."
+msgstr "Karibu uombe tena baada ya suala hili kutatuliwa."
+
+#: onboarding/templates/onboarding/email/verify.txt
+msgid ""
+"Thank you for registering %(school)s on EduKenya. Please confirm your email "
+"address by opening this link:"
+msgstr ""
+"Asante kwa kusajili %(school)s kwenye EduKenya. Tafadhali thibitisha barua "
+"pepe yako kwa kufungua kiungo hiki:"
+
+#: onboarding/templates/onboarding/email/verify.txt
+msgid "The link works for %(hours)s hours and can only be used once."
+msgstr ""
+"Kiungo kinafanya kazi kwa saa %(hours)s na kinaweza kutumika mara moja tu."
+
+#: onboarding/templates/onboarding/email/verify.txt
+msgid ""
+"If you did not register a school on EduKenya, you can ignore this email."
+msgstr ""
+"Ikiwa hukusajili shule kwenye EduKenya, unaweza kupuuza barua pepe hii."
+
+#: school/templates/school/base.html
+msgid "Sign out"
+msgstr "Toka"
+
+#: school/templates/school/base.html
+msgid "Powered by EduKenya"
+msgstr "Inaendeshwa na EduKenya"
+
+#: school/templates/school/dashboard.html
+msgid "Dashboard"
+msgstr "Dashibodi"
+
+#: school/templates/school/dashboard.html
+msgid "Welcome, %(name)s"
+msgstr "Karibu, %(name)s"
+
+#: school/templates/school/dashboard.html
+msgid "You are signed in as the admin of %(school)s."
+msgstr "Umeingia kama msimamizi wa %(school)s."
+
+#: school/templates/school/dashboard.html
+msgid "Tools for adding teachers, parents and students are coming next."
+msgstr "Zana za kuongeza walimu, wazazi na wanafunzi zinakuja hivi karibuni."
+
+#: school/templates/school/login.html
+msgid "Sign in"
+msgstr "Ingia"
+
+#: school/templates/school/login.html
+msgid "Too many sign in attempts. Please wait 15 minutes and try again."
+msgstr ""
+"Majaribio mengi ya kuingia. Tafadhali subiri dakika 15 kisha ujaribu tena."

@@ -1,0 +1,8 @@
+{% extends "console/base.html" %}
+{% block page_title %}Audit log{% endblock %}
+{% block content %}
+<h1>Audit log</h1>
+<p class="help">Every sign in, approval, rejection and suspension. Entries cannot be edited or deleted from the app.</p>
+{% include "console/_events.html" with events=page %}
+{% include "console/_pager.html" %}
+{% endblock %}

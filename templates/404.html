@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% block title %}{% translate "Page not found" %} | EduKenya{% endblock %}
+{% block extra_head %}<meta name="robots" content="noindex"><link rel="stylesheet" href="{% static 'landing/css/style.css' %}">{% endblock %}
+{% block body %}
+<main id="main" class="page-form">
+  <div class="container narrow">
+    <div class="message-card">
+      <span class="message-icon mi-coral" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg></span>
+      <h1>{% translate "Page not found" %}</h1>
+      <p class="lead">{% translate "We could not find what you were looking for." %}</p>
+    </div>
+  </div>
+</main>
+{% endblock %}

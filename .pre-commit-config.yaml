@@ -1,0 +1,37 @@
+# Runs on every `git commit`. Blocks the commit if anything fails.
+# Install once:  pre-commit install
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.0
+    hooks:
+      - id: gitleaks            # blocks commits containing keys, passwords, tokens
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: detect-private-key
+      - id: check-added-large-files
+        args: ["--maxkb=500"]
+      - id: check-merge-conflict
+      - id: forbid-new-submodules
+      - id: no-commit-to-branch   # all work goes through feature branches + PRs
+        args: ["--branch", "main"]
+
+  - repo: local
+    hooks:
+      - id: block-env-files
+        name: block .env files
+        entry: ".env files must never be committed"
+        language: fail
+        files: '(^|/)\.env($|\.(?!example$).*)'
+      - id: cfn-lint
+        name: cfn-lint (CloudFormation)
+        entry: cfn-lint
+        language: system
+        files: ^infra/cloudformation/.*\.ya?ml$
+      - id: translations-complete
+        name: every UI string has a Kiswahili translation
+        entry: python scripts/make_messages.py --check
+        language: system
+        pass_filenames: false
+        files: \.(py|html|txt|po)$
