@@ -1,0 +1,3 @@
+-r requirements.txt
+# Compiles .po translation files without needing GNU gettext installed (see scripts/compile_messages.py)
+polib==1.2.0

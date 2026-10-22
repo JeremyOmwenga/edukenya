@@ -1,147 +1,274 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EduKenya — AI Augmented Learning for Kenya</title>
-  <link rel="stylesheet" href="{% static 'landing/css/style.css' %}">
-</head>
-<body>
+{% extends "base.html" %}
+{% load static i18n %}
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="logo">EduKenya<span>u</span></a>
-  <div class="nav-links">
-    <a href="/login/" class="btn">Log in</a>
-    <a href="/signup/" class="btn btn-primary">Sign up</a>
-  </div>
-</nav>
+{% block title %}EduKenya | {% translate "Learning that fits you." %}{% endblock %}
+{% block meta_description %}{% translate "EduKenya is a smart learning buddy that explains every CBC topic in a way that makes sense to you, and checks you really get it before you move on." %}{% endblock %}
+{% block extra_head %}<link rel="stylesheet" href="{% static 'landing/css/style.css' %}">{% endblock %}
 
-<!-- HERO -->
-<section class="hero">
-  <h1>CBC learning that<br>adapts to <span>every student</span></h1>
-  <p>
-    EduKenya maps each student's knowledge as a graph — unlocking
-    concepts only when mastery is proven, and using AI text generation to explain
-    gaps in plain language.
-  </p>
-  <div class="hero-btns">
-    <a href="/signup/" class="btn btn-primary btn-lg">Get started for Free</a>
-    <a href="/how/" class="btn btn-lg">See how it works</a>
-  </div>
-</section>
+{% block body %}
+{% get_current_language as LANGUAGE_CODE %}
+<a class="skip-link" href="#main">{% translate "Skip to main content" %}</a>
 
-<!-- DAG DIAGRAM -->
-<div class="dag-section">
-  <p class="section-label">Student knowledge graph — Grade 7 Mathematics</p>
-  <div class="dag-box">
-    <svg viewBox="0 0 560 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="{% url 'landing:index' %}" aria-label="{% translate 'EduKenya home' %}">
+      <img src="{% static 'landing/img/logo-placeholder.svg' %}" alt="" width="40" height="40">
+      <span>EduKenya</span>
+    </a>
 
-      <!-- edges: mastered -->
-      <line x1="280" y1="36" x2="140" y2="104" stroke="#16a34a" stroke-width="1.5"/>
-      <line x1="280" y1="36" x2="280" y2="104" stroke="#16a34a" stroke-width="1.5"/>
-      <line x1="280" y1="36" x2="420" y2="104" stroke="#16a34a" stroke-width="1.5"/>
-      <line x1="140" y1="130" x2="210" y2="194" stroke="#16a34a" stroke-width="1.5"/>
-      <line x1="280" y1="130" x2="210" y2="194" stroke="#16a34a" stroke-width="1.5"/>
+    <nav class="main-nav" aria-label="{% translate 'Main' %}">
+      <a href="#how">{% translate "How it works" %}</a>
+      <a href="#features">{% translate "Features" %}</a>
+      <a href="#schools">{% translate "For schools" %}</a>
+    </nav>
 
-      <!-- edges: to active -->
-      <line x1="210" y1="220" x2="350" y2="220" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="5 3"/>
-      <line x1="420" y1="130" x2="420" y2="194" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="5 3"/>
-
-      <!-- edges: locked -->
-      <line x1="350" y1="220" x2="490" y2="220" stroke="#cbd5e1" stroke-width="1.5"/>
-      <line x1="420" y1="220" x2="490" y2="220" stroke="#cbd5e1" stroke-width="1.5"/>
-
-      <!-- ROOT: Number Line (mastered) -->
-      <circle cx="280" cy="22" r="18" fill="#16a34a"/>
-      <text x="280" y="19" text-anchor="middle" fill="white" font-size="7.5" font-weight="600">Number</text>
-      <text x="280" y="29" text-anchor="middle" fill="white" font-size="7.5" font-weight="600">Line</text>
-
-      <!-- Row 2 (mastered) -->
-      <circle cx="140" cy="117" r="18" fill="#16a34a"/>
-      <text x="140" y="114" text-anchor="middle" fill="white" font-size="7.5" font-weight="600">Adding</text>
-      <text x="140" y="124" text-anchor="middle" fill="white" font-size="7.5" font-weight="600">Integers</text>
-
-      <circle cx="280" cy="117" r="18" fill="#16a34a"/>
-      <text x="280" y="114" text-anchor="middle" fill="white" font-size="7.5" font-weight="600">Subtracting</text>
-      <text x="280" y="124" text-anchor="middle" fill="white" font-size="7.5" font-weight="600">Integers</text>
-
-      <circle cx="420" cy="117" r="18" fill="#16a34a"/>
-      <text x="420" y="114" text-anchor="middle" fill="white" font-size="7.5" font-weight="600">Absolute</text>
-      <text x="420" y="124" text-anchor="middle" fill="white" font-size="7.5" font-weight="600">Value</text>
-
-      <!-- Row 3: active + locked -->
-      <circle cx="210" cy="207" r="18" fill="#16a34a"/>
-      <text x="210" y="204" text-anchor="middle" fill="white" font-size="7.5" font-weight="600">Mixed</text>
-      <text x="210" y="214" text-anchor="middle" fill="white" font-size="7.5" font-weight="600">Operations</text>
-
-      <!-- ACTIVE node -->
-      <circle cx="350" cy="207" r="20" fill="#2563eb"/>
-      <circle cx="350" cy="207" r="20" fill="none" stroke="#2563eb" stroke-width="3" opacity="0.25"/>
-      <text x="350" y="203" text-anchor="middle" fill="white" font-size="7.5" font-weight="600">Word</text>
-      <text x="350" y="213" text-anchor="middle" fill="white" font-size="7.5" font-weight="600">Problems</text>
-
-      <circle cx="420" cy="207" r="18" fill="#2563eb" opacity="0.4"/>
-      <text x="420" y="204" text-anchor="middle" fill="white" font-size="7.5" font-weight="600">Integer</text>
-      <text x="420" y="214" text-anchor="middle" fill="white" font-size="7.5" font-weight="600">Patterns</text>
-
-      <!-- LOCKED -->
-      <circle cx="490" cy="207" r="18" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
-      <text x="490" y="204" text-anchor="middle" fill="#94a3b8" font-size="7.5" font-weight="600">Fractions</text>
-      <text x="490" y="214" text-anchor="middle" fill="#94a3b8" font-size="7" font-weight="500">🔒</text>
-
-      <!-- "You are here" label -->
-      <text x="350" y="238" text-anchor="middle" fill="#2563eb" font-size="8" font-weight="600">← you are here</text>
-
-    </svg>
-  </div>
-  <div class="dag-legend">
-    <div class="legend-item"><div class="dot dot-green"></div> Mastered</div>
-    <div class="legend-item"><div class="dot dot-blue"></div> In progress</div>
-    <div class="legend-item"><div class="dot dot-grey"></div> Locked</div>
-  </div>
-</div>
-
-<!-- FEATURES -->
-<section class="features" id="how">
-  <div class="features-inner">
-
-    <div class="feature-card">
-      <div class="feature-tag">Graph engine</div>
-      <h3>Mastery-gated progression</h3>
-      <p>
-        Concepts only unlock when a student truly masters the prerequisite —
-        not just attempts it. The graph is unique to each student.
-      </p>
+    <div class="header-actions">
+      <form class="lang-toggle" action="{% url 'set_language' %}" method="post" role="group" aria-label="{% translate 'Choose language' %}">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+        <button type="submit" name="language" value="en" lang="en" aria-pressed="{% if LANGUAGE_CODE == 'en' %}true{% else %}false{% endif %}">EN</button>
+        <button type="submit" name="language" value="sw" lang="sw" aria-pressed="{% if LANGUAGE_CODE == 'sw' %}true{% else %}false{% endif %}">SW</button>
+      </form>
+      {# TODO: point to the school registration flow once it exists #}
+      <a class="btn btn-primary btn-sm" href="#register">{% translate "Register your school" %}</a>
     </div>
-
-    <div class="feature-card">
-      <div class="feature-tag">AI-powered</div>
-      <h3>Personalised re-explanations</h3>
-      <p>
-        When a student fails a quiz, the AI RAG pipeline generates a new explanation
-        targeting exactly what they got wrong — pulling from the CBC
-        knowledge base.
-      </p>
-    </div>
-
-    <div class="feature-card">
-      <div class="feature-tag">For teachers</div>
-      <h3>Live class dashboard</h3>
-      <p>
-        See every student's position in the graph, flag students who are
-        stuck, and assign custom learning paths — all in one view.
-      </p>
-    </div>
-
   </div>
-</section>
+</header>
 
-<!-- FOOTER -->
-<footer>
-  <p>© 2026 EduKenya · CBC-aligned AI learning · Kenya</p>
+<main id="main">
+
+  <!-- Hero -->
+  <section class="hero">
+    <span class="blob blob-1" aria-hidden="true"></span>
+    <span class="blob blob-2" aria-hidden="true"></span>
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">{% translate "Made for CBC Grades 7 and 8" %}</p>
+        <h1>{% translate "Learning that fits you." %}</h1>
+        <p class="lead">{% translate "EduKenya is a smart learning buddy that explains every CBC topic in a way that makes sense to you, and checks you really get it before you move on." %}</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#register">{% translate "Register your school" %}</a>
+          <a class="btn btn-ghost" href="#how">{% translate "See how it works" %}</a>
+        </div>
+        <ul class="trust-row">
+          <li><span class="dot dot-teal" aria-hidden="true"></span>{% translate "Follows the CBC curriculum" %}</li>
+          <li><span class="dot dot-coral" aria-hidden="true"></span>{% translate "English and Kiswahili" %}</li>
+          <li><span class="dot dot-purple" aria-hidden="true"></span>{% translate "Students, teachers and parents" %}</li>
+        </ul>
+      </div>
+
+      <div class="hero-art">
+        <svg class="map" viewBox="0 0 480 420" role="img" aria-label="{% translate 'A learning map showing topics linked from Grade 6 to Grade 8' %}">
+          <!-- connecting paths -->
+          <path class="link" d="M210 75 C 250 75, 250 145, 270 145"/>
+          <path class="link" d="M350 180 C 350 230, 250 220, 230 245"/>
+          <path class="link link-locked" d="M200 280 C 220 340, 250 335, 280 335"/>
+
+          <!-- Grade 6: done -->
+          <g class="node node-done">
+            <rect x="40" y="40" width="170" height="70" rx="22"/>
+            <text x="62" y="68" class="node-grade">{% translate "Grade 6" %}</text>
+            <text x="62" y="94" class="node-title">{% translate "Fractions" %}</text>
+            <circle cx="186" cy="64" r="12" class="badge-bg"/>
+            <path d="m180 64 4 4 8-8" class="badge-mark"/>
+          </g>
+          <!-- Grade 7: done -->
+          <g class="node node-done">
+            <rect x="270" y="110" width="170" height="70" rx="22"/>
+            <text x="292" y="138" class="node-grade">{% translate "Grade 7" %}</text>
+            <text x="292" y="164" class="node-title">{% translate "Ratios" %}</text>
+            <circle cx="416" cy="134" r="12" class="badge-bg"/>
+            <path d="m410 134 4 4 8-8" class="badge-mark"/>
+          </g>
+          <!-- Grade 7: current -->
+          <g class="node node-current">
+            <rect x="60" y="210" width="190" height="70" rx="22"/>
+            <text x="82" y="238" class="node-grade">{% translate "Grade 7" %}</text>
+            <text x="82" y="264" class="node-title">{% translate "Percentages" %}</text>
+          </g>
+          <g class="here-tag">
+            <rect x="150" y="186" width="110" height="30" rx="15"/>
+            <text x="205" y="206" text-anchor="middle">{% translate "You are here" %}</text>
+          </g>
+          <!-- Grade 8: locked -->
+          <g class="node node-locked">
+            <rect x="280" y="300" width="170" height="70" rx="22"/>
+            <text x="302" y="328" class="node-grade">{% translate "Grade 8" %}</text>
+            <text x="302" y="354" class="node-title">{% translate "Proportion" %}</text>
+            <rect x="417" y="322" width="18" height="14" rx="3" class="lock"/>
+            <path d="M420 322v-4a6 6 0 0 1 12 0v4" class="lock-loop"/>
+          </g>
+
+          <!-- decorations -->
+          <path class="star star-1" d="M440 40l6 13 14 2-10 10 3 14-13-7-13 7 3-14-10-10 14-2z"/>
+          <circle class="spark spark-1" cx="40" cy="330" r="10"/>
+          <circle class="spark spark-2" cx="455" cy="230" r="7"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- How we are different -->
+  <section class="section different" aria-labelledby="different-title">
+    <div class="container">
+      <h2 id="different-title">{% translate "Not your usual e-learning" %}</h2>
+      <p class="section-intro">{% translate "Most e-learning sites give everyone the same notes and one quiz. EduKenya works differently." %}</p>
+
+      <div class="compare">
+        <div class="compare-card compare-old">
+          <h3>{% translate "Usual e-learning" %}</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>{% translate "Same notes for every learner" %}</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>{% translate "One quiz, then move on" %}</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>{% translate "Topics feel disconnected" %}</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>{% translate "Answers from anywhere online" %}</li>
+          </ul>
+        </div>
+        <div class="compare-card compare-new">
+          <h3>{% translate "With EduKenya" %}</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>{% translate "Lessons rewritten to suit how you learn" %}</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>{% translate "Practise until you truly get it" %}</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>{% translate "Every topic links to what comes next" %}</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>{% translate "Answers only from CBC materials" %}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="section features" aria-labelledby="features-title">
+    <div class="container">
+      <h2 id="features-title">{% translate "What makes EduKenya special" %}</h2>
+      <div class="feature-grid">
+        <article class="feature-card fc-teal">
+          <span class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5z"/><path d="M4 19a2 2 0 0 1 2-2h13"/><path d="M9 7h6"/></svg>
+          </span>
+          <h3>{% translate "Built on CBC" %}</h3>
+          <p>{% translate "Our AI reads only from approved CBC materials, so every answer matches what you learn in class." %}</p>
+        </article>
+        <article class="feature-card fc-coral">
+          <span class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></svg>
+          </span>
+          <h3>{% translate "Explained your way" %}</h3>
+          <p>{% translate "Stuck? Ask for a new explanation. EduKenya rewrites the lesson with simpler words, examples or pictures." %}</p>
+        </article>
+        <article class="feature-card fc-purple">
+          <span class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg>
+          </span>
+          <h3>{% translate "Master it, then move on" %}</h3>
+          <p>{% translate "Each topic has a few short tests. Get them right and the next topic unlocks." %}</p>
+        </article>
+        <article class="feature-card fc-sky">
+          <span class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="5" cy="6" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M7.2 7.6 10.6 15.8M16.8 7.6 13.4 15.8M7.5 6h9"/></svg>
+          </span>
+          <h3>{% translate "Everything connects" %}</h3>
+          <p>{% translate "Topics are linked like a map, so what you learn in Grade 7 leads smoothly into Grade 8." %}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how" class="section how" aria-labelledby="how-title">
+    <div class="container">
+      <h2 id="how-title">{% translate "How learning works" %}</h2>
+      <ol class="steps">
+        <li class="step s-1">
+          <span class="step-num" aria-hidden="true">1</span>
+          <h3>{% translate "Learn" %}</h3>
+          <p>{% translate "Read a short lesson made for you." %}</p>
+        </li>
+        <li class="step s-2">
+          <span class="step-num" aria-hidden="true">2</span>
+          <h3>{% translate "Practise" %}</h3>
+          <p>{% translate "Try a few quick questions." %}</p>
+        </li>
+        <li class="step s-3">
+          <span class="step-num" aria-hidden="true">3</span>
+          <h3>{% translate "Get help" %}</h3>
+          <p>{% translate "Not quite? Get a fresh explanation and try again." %}</p>
+        </li>
+        <li class="step s-4">
+          <span class="step-num" aria-hidden="true">4</span>
+          <h3>{% translate "Level up" %}</h3>
+          <p>{% translate "Pass and unlock the next topic." %}</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- For schools -->
+  <section id="schools" class="section schools" aria-labelledby="schools-title">
+    <div class="container">
+      <h2 id="schools-title">{% translate "One place for the whole school" %}</h2>
+      <p class="section-intro">{% translate "EduKenya also does the everyday school jobs, so you do not need another system." %}</p>
+      <div class="role-grid">
+        <article class="role-card rc-purple">
+          <span class="role-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3z"/><path d="M5 13.2v3.6L12 21l7-4.2v-3.6L12 17l-7-3.8z"/></svg></span>
+          <h3>{% translate "Students" %}</h3>
+          <ul>
+            <li>{% translate "Lessons and tests" %}</li>
+            <li>{% translate "Assignments" %}</li>
+            <li>{% translate "My grades" %}</li>
+          </ul>
+        </article>
+        <article class="role-card rc-teal">
+          <span class="role-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 3H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h6l-2 3h2l2-3 2 3h2l-2-3h6a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm0 13H4V5h16v11z"/></svg></span>
+          <h3>{% translate "Teachers" %}</h3>
+          <ul>
+            <li>{% translate "Track each learner's progress" %}</li>
+            <li>{% translate "Set and mark assignments" %}</li>
+            <li>{% translate "Spot who needs help early" %}</li>
+          </ul>
+        </article>
+        <article class="role-card rc-coral">
+          <span class="role-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-10-9.3C.3 8.2 2.5 4 6.4 4c2.1 0 3.6 1.1 4.6 2.6l1 1.4 1-1.4C14 5.1 15.5 4 17.6 4 21.5 4 23.7 8.2 22 11.7 19.5 16.4 12 21 12 21z"/></svg></span>
+          <h3>{% translate "Parents" %}</h3>
+          <ul>
+            <li>{% translate "View grades and reports" %}</li>
+            <li>{% translate "Check fee balances" %}</li>
+            <li>{% translate "See what your child is learning" %}</li>
+          </ul>
+        </article>
+        <article class="role-card rc-sun">
+          <span class="role-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2 2 7v2h20V7L12 2zM4 11v7h3v-7H4zm6.5 0v7h3v-7h-3zM17 11v7h3v-7h-3zM2 20v2h20v-2H2z"/></svg></span>
+          <h3>{% translate "School admins" %}</h3>
+          <ul>
+            <li>{% translate "Manage student records" %}</li>
+            <li>{% translate "Manage fees" %}</li>
+            <li>{% translate "Add teachers and classes" %}</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to action -->
+  <section id="register" class="cta" aria-labelledby="cta-title">
+    <div class="container cta-inner">
+      <h2 id="cta-title">{% translate "Bring EduKenya to your school" %}</h2>
+      <p>{% translate "Set up your school in a few minutes. Every school gets its own private space." %}</p>
+      {# TODO: link to the school registration flow once it exists #}
+      <a class="btn btn-sun" href="#register">{% translate "Register your school" %}</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="brand brand-footer">
+      <img src="{% static 'landing/img/logo-placeholder.svg' %}" alt="" width="32" height="32">
+      <span>EduKenya</span>
+    </div>
+    <p>{% translate "Learning that fits you." %}</p>
+    <p class="copyright">&copy; {% now "Y" %} EduKenya. {% translate "All rights reserved." %}</p>
+  </div>
 </footer>
-
-</body>
-</html>
+{% endblock %}

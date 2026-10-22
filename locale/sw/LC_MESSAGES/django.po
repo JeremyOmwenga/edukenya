@@ -1,0 +1,279 @@
+# Kiswahili translations for EduKenya.
+# Draft translations: please have a native speaker / teacher review before launch.
+msgid ""
+msgstr ""
+"Project-Id-Version: EduKenya\n"
+"Language: sw\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# settings.LANGUAGES
+msgid "English"
+msgstr "Kiingereza"
+
+msgid "Kiswahili"
+msgstr "Kiswahili"
+
+# Header
+msgid "Skip to main content"
+msgstr "Ruka hadi maudhui makuu"
+
+msgid "EduKenya home"
+msgstr "Ukurasa mkuu wa EduKenya"
+
+msgid "Main"
+msgstr "Kuu"
+
+msgid "How it works"
+msgstr "Jinsi inavyofanya kazi"
+
+msgid "Features"
+msgstr "Vipengele"
+
+msgid "For schools"
+msgstr "Kwa shule"
+
+msgid "Choose language"
+msgstr "Chagua lugha"
+
+msgid "Register your school"
+msgstr "Sajili shule yako"
+
+# Hero
+msgid "Made for CBC Grades 7 and 8"
+msgstr "Imeundwa kwa Gredi 7 na 8 za CBC"
+
+msgid "Learning that fits you."
+msgstr "Masomo yanayokufaa wewe."
+
+msgid ""
+"EduKenya is a smart learning buddy that explains every CBC topic in a way "
+"that makes sense to you, and checks you really get it before you move on."
+msgstr ""
+"EduKenya ni rafiki mwerevu wa kujifunza anayeeleza kila mada ya CBC kwa "
+"njia unayoielewa, na kuhakikisha umeelewa kweli kabla ya kuendelea."
+
+msgid "See how it works"
+msgstr "Tazama jinsi inavyofanya kazi"
+
+msgid "Follows the CBC curriculum"
+msgstr "Inafuata mtaala wa CBC"
+
+msgid "English and Kiswahili"
+msgstr "Kiingereza na Kiswahili"
+
+msgid "Students, teachers and parents"
+msgstr "Wanafunzi, walimu na wazazi"
+
+msgid "A learning map showing topics linked from Grade 6 to Grade 8"
+msgstr "Ramani ya kujifunza inayoonyesha mada zilizounganishwa kutoka Gredi 6 hadi Gredi 8"
+
+msgid "Grade 6"
+msgstr "Gredi 6"
+
+msgid "Grade 7"
+msgstr "Gredi 7"
+
+msgid "Grade 8"
+msgstr "Gredi 8"
+
+msgid "Fractions"
+msgstr "Sehemu"
+
+msgid "Ratios"
+msgstr "Uwiano"
+
+msgid "Percentages"
+msgstr "Asilimia"
+
+msgid "Proportion"
+msgstr "Sawia"
+
+msgid "You are here"
+msgstr "Uko hapa"
+
+# How we are different
+msgid "Not your usual e-learning"
+msgstr "Si masomo ya mtandaoni ya kawaida"
+
+msgid ""
+"Most e-learning sites give everyone the same notes and one quiz. EduKenya "
+"works differently."
+msgstr ""
+"Tovuti nyingi za masomo huwapa wote maelezo yale yale na jaribio moja. "
+"EduKenya ni tofauti."
+
+msgid "Usual e-learning"
+msgstr "Masomo ya kawaida ya mtandaoni"
+
+msgid "With EduKenya"
+msgstr "Ukiwa na EduKenya"
+
+msgid "Same notes for every learner"
+msgstr "Maelezo yale yale kwa kila mwanafunzi"
+
+msgid "One quiz, then move on"
+msgstr "Jaribio moja, kisha unaendelea"
+
+msgid "Topics feel disconnected"
+msgstr "Mada hazihusiani"
+
+msgid "Answers from anywhere online"
+msgstr "Majibu kutoka popote mtandaoni"
+
+msgid "Lessons rewritten to suit how you learn"
+msgstr "Masomo huandikwa upya kulingana na jinsi unavyojifunza"
+
+msgid "Practise until you truly get it"
+msgstr "Fanya mazoezi hadi uelewe kweli"
+
+msgid "Every topic links to what comes next"
+msgstr "Kila mada inaunganishwa na inayofuata"
+
+msgid "Answers only from CBC materials"
+msgstr "Majibu kutoka kwa nyenzo za CBC pekee"
+
+# Features
+msgid "What makes EduKenya special"
+msgstr "Kinachoifanya EduKenya kuwa ya kipekee"
+
+msgid "Built on CBC"
+msgstr "Imejengwa juu ya CBC"
+
+msgid ""
+"Our AI reads only from approved CBC materials, so every answer matches what "
+"you learn in class."
+msgstr ""
+"Akili bandia yetu husoma nyenzo za CBC zilizoidhinishwa pekee, hivyo kila "
+"jibu linalingana na unachojifunza darasani."
+
+msgid "Explained your way"
+msgstr "Imeelezwa kwa njia yako"
+
+msgid ""
+"Stuck? Ask for a new explanation. EduKenya rewrites the lesson with simpler "
+"words, examples or pictures."
+msgstr ""
+"Umekwama? Omba maelezo mapya. EduKenya huandika somo upya kwa maneno rahisi, "
+"mifano au picha."
+
+msgid "Master it, then move on"
+msgstr "Elewa kwanza, kisha endelea"
+
+msgid ""
+"Each topic has a few short tests. Get them right and the next topic unlocks."
+msgstr ""
+"Kila mada ina majaribio mafupi machache. Ukiyapita, mada inayofuata "
+"inafunguka."
+
+msgid "Everything connects"
+msgstr "Kila kitu kinaungana"
+
+msgid ""
+"Topics are linked like a map, so what you learn in Grade 7 leads smoothly "
+"into Grade 8."
+msgstr ""
+"Mada zimeunganishwa kama ramani, hivyo unachojifunza Gredi 7 kinakuongoza "
+"vizuri hadi Gredi 8."
+
+# How it works
+msgid "How learning works"
+msgstr "Jinsi kujifunza kunavyofanya kazi"
+
+msgid "Learn"
+msgstr "Jifunze"
+
+msgid "Read a short lesson made for you."
+msgstr "Soma somo fupi lililoandaliwa kwa ajili yako."
+
+msgid "Practise"
+msgstr "Fanya mazoezi"
+
+msgid "Try a few quick questions."
+msgstr "Jaribu maswali machache ya haraka."
+
+msgid "Get help"
+msgstr "Pata msaada"
+
+msgid "Not quite? Get a fresh explanation and try again."
+msgstr "Bado hujaelewa? Pata maelezo mapya na ujaribu tena."
+
+msgid "Level up"
+msgstr "Panda ngazi"
+
+msgid "Pass and unlock the next topic."
+msgstr "Pita na ufungue mada inayofuata."
+
+# For schools
+msgid "One place for the whole school"
+msgstr "Mahali pamoja kwa shule nzima"
+
+msgid ""
+"EduKenya also does the everyday school jobs, so you do not need another "
+"system."
+msgstr ""
+"EduKenya pia hushughulikia kazi za kila siku za shule, hivyo huhitaji mfumo "
+"mwingine."
+
+msgid "Students"
+msgstr "Wanafunzi"
+
+msgid "Lessons and tests"
+msgstr "Masomo na majaribio"
+
+msgid "Assignments"
+msgstr "Kazi za ziada"
+
+msgid "My grades"
+msgstr "Alama zangu"
+
+msgid "Teachers"
+msgstr "Walimu"
+
+msgid "Track each learner's progress"
+msgstr "Fuatilia maendeleo ya kila mwanafunzi"
+
+msgid "Set and mark assignments"
+msgstr "Toa na usahihishe kazi"
+
+msgid "Spot who needs help early"
+msgstr "Tambua mapema anayehitaji msaada"
+
+msgid "Parents"
+msgstr "Wazazi"
+
+msgid "View grades and reports"
+msgstr "Tazama alama na ripoti"
+
+msgid "Check fee balances"
+msgstr "Angalia salio la karo"
+
+msgid "See what your child is learning"
+msgstr "Ona mtoto wako anachojifunza"
+
+msgid "School admins"
+msgstr "Wasimamizi wa shule"
+
+msgid "Manage student records"
+msgstr "Simamia rekodi za wanafunzi"
+
+msgid "Manage fees"
+msgstr "Simamia karo"
+
+msgid "Add teachers and classes"
+msgstr "Ongeza walimu na madarasa"
+
+# Call to action / footer
+msgid "Bring EduKenya to your school"
+msgstr "Leta EduKenya shuleni kwako"
+
+msgid ""
+"Set up your school in a few minutes. Every school gets its own private space."
+msgstr ""
+"Sajili shule yako kwa dakika chache. Kila shule inapata nafasi yake ya "
+"faragha."
+
+msgid "All rights reserved."
+msgstr "Haki zote zimehifadhiwa."
