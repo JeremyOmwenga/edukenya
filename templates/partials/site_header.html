@@ -1,0 +1,22 @@
+{% load static i18n %}{% get_current_language as LANGUAGE_CODE %}
+<a class="skip-link" href="#main">{% translate "Skip to main content" %}</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="{% url 'landing:index' %}" aria-label="{% translate 'EduKenya home' %}">
+      <img src="{% static 'landing/img/logo-placeholder.svg' %}" alt="" width="40" height="40">
+      <span>EduKenya</span>
+    </a>
+
+    <nav class="main-nav" aria-label="{% translate 'Main' %}">
+      <a href="{% url 'landing:index' %}#how">{% translate "How it works" %}</a>
+      <a href="{% url 'landing:index' %}#features">{% translate "Features" %}</a>
+      <a href="{% url 'landing:index' %}#schools">{% translate "For schools" %}</a>
+    </nav>
+
+    <div class="header-actions">
+      {% include "partials/lang_toggle.html" %}
+      <a class="btn btn-primary btn-sm" href="{% url 'onboarding:register' %}">{% translate "Register your school" %}</a>
+    </div>
+  </div>
+</header>

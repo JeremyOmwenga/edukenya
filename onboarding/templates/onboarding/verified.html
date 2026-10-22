@@ -1,0 +1,17 @@
+{% extends "public_base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Email confirmed" %} | EduKenya{% endblock %}
+{% block main_class %}page-form{% endblock %}
+{% block content %}
+<div class="container narrow">
+  <div class="message-card">
+    <span class="message-icon mi-teal" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></svg>
+    </span>
+    <p class="eyebrow">{% translate "Step 3 of 3" %}</p>
+    <h1>{% translate "Email confirmed" %}</h1>
+    <p class="lead">{% translate "Thank you. Our team is now reviewing your school. We will email you as soon as it is approved, usually within one working day." %}</p>
+    <a class="btn btn-ghost" href="{% url 'landing:index' %}">{% translate "Back to home" %}</a>
+  </div>
+</div>
+{% endblock %}

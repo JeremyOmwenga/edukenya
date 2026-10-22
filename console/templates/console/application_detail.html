@@ -1,0 +1,63 @@
+{% extends "console/base.html" %}
+{% block page_title %}{{ app.school_name }}{% endblock %}
+{% block content %}
+<p><a href="{% url 'console:applications' %}?status={{ app.status }}">&larr; Back to applications</a></p>
+<h1>{{ app.school_name }}</h1>
+<p><span class="pill pill-{{ app.status }}">{{ app.get_status_display }}</span></p>
+
+<div class="detail-grid">
+  <section class="form-card">
+    <h2>School</h2>
+    <dl class="kv">
+      <dt>KNEC code</dt><dd>{{ app.knec_code }}</dd>
+      <dt>County</dt><dd>{{ app.county }}</dd>
+      <dt>Web address</dt><dd>{{ app.full_domain }}</dd>
+      <dt>Submitted</dt><dd>{{ app.created_at|date:"Y-m-d H:i" }} from {{ app.created_ip|default:"unknown IP" }}</dd>
+      <dt>Email confirmed</dt><dd>{{ app.email_verified_at|date:"Y-m-d H:i"|default:"Not yet" }}</dd>
+      <dt>Language</dt><dd>{{ app.language }}</dd>
+    </dl>
+  </section>
+  <section class="form-card">
+    <h2>School admin</h2>
+    <dl class="kv">
+      <dt>Name</dt><dd>{{ app.admin_full_name }}</dd>
+      <dt>Email</dt><dd>{{ app.admin_email }}</dd>
+    </dl>
+    {% if app.reviewed_at %}
+    <h2>Decision</h2>
+    <dl class="kv">
+      <dt>By</dt><dd>{{ app.reviewed_by.email|default:"(deleted user)" }}</dd>
+      <dt>At</dt><dd>{{ app.reviewed_at|date:"Y-m-d H:i" }}</dd>
+      {% if app.rejection_reason %}<dt>Reason</dt><dd>{{ app.rejection_reason|linebreaksbr }}</dd>{% endif %}
+    </dl>
+    {% endif %}
+  </section>
+</div>
+
+{% if can_decide %}
+<div class="detail-grid">
+  <section class="form-card decision approve">
+    <h2>Approve</h2>
+    <p>Creates the school's private database space, makes <strong>{{ app.full_domain }}</strong> live and emails the admin a sign in link.</p>
+    <p class="help">Before approving, check the KNEC code against official records.</p>
+    <form method="post" action="{% url 'console:application_approve' app.pk %}">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-primary">Approve {{ app.school_name }}</button>
+    </form>
+  </section>
+  <section class="form-card decision reject">
+    <h2>Reject</h2>
+    <form method="post" action="{% url 'console:application_reject' app.pk %}" novalidate>
+      {% csrf_token %}
+      <div class="field">
+        <label for="{{ reject_form.reason.id_for_label }}">Reason for rejection</label>
+        {{ reject_form.reason }}
+        <p class="help">{{ reject_form.reason.help_text }}</p>
+        {{ reject_form.reason.errors }}
+      </div>
+      <button type="submit" class="btn btn-danger">Reject application</button>
+    </form>
+  </section>
+</div>
+{% endif %}
+{% endblock %}

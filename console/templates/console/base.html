@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{% block page_title %}Console{% endblock %} | EduKenya Console{% endblock %}
+{% block extra_head %}
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="{% static 'landing/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'console/console.css' %}">
+{% endblock %}
+{% block body %}
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="console-header">
+  <div class="container header-inner">
+    <a class="brand" href="{% url 'console:home' %}">
+      <img src="{% static 'landing/img/logo-placeholder.svg' %}" alt="" width="36" height="36">
+      <span>EduKenya <small>Console</small></span>
+    </a>
+    {% if user.is_authenticated %}
+    <nav class="console-nav" aria-label="Console">
+      <a href="{% url 'console:home' %}">Overview</a>
+      <a href="{% url 'console:applications' %}">Applications</a>
+      <a href="{% url 'console:schools' %}">Schools</a>
+      <a href="{% url 'console:audit' %}">Audit log</a>
+    </nav>
+    <form method="post" action="{% url 'console:logout' %}" class="header-actions">
+      {% csrf_token %}
+      <span class="who">{{ user.email }}</span>
+      <button type="submit" class="btn btn-ghost btn-sm">Sign out</button>
+    </form>
+    {% endif %}
+  </div>
+</header>
+<main id="main" class="console-main">
+  <div class="container">
+    {% for message in messages %}
+      <div class="alert {% if message.tags == 'error' %}alert-error{% elif message.tags == 'success' %}alert-success{% else %}alert-info{% endif %}" role="status">{{ message }}</div>
+    {% endfor %}
+    {% block content %}{% endblock %}
+  </div>
+</main>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% load static i18n %}
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="brand brand-footer">
+      <img src="{% static 'landing/img/logo-placeholder.svg' %}" alt="" width="32" height="32">
+      <span>EduKenya</span>
+    </div>
+    <p>{% translate "Learning that fits you." %}</p>
+    <p class="copyright">&copy; {% now "Y" %} EduKenya. {% translate "All rights reserved." %}</p>
+  </div>
+</footer>

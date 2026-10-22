@@ -1,0 +1,15 @@
+{% extends "console/base.html" %}
+{% block page_title %}Overview{% endblock %}
+{% block content %}
+<h1>Overview</h1>
+<div class="stat-grid">
+  <a class="stat stat-purple" href="{% url 'console:applications' %}?status=pending_review"><strong>{{ pending_review }}</strong><span>Waiting for your approval</span></a>
+  <a class="stat stat-sun" href="{% url 'console:applications' %}?status=pending_email"><strong>{{ pending_email }}</strong><span>Waiting for email confirmation</span></a>
+  <a class="stat stat-teal" href="{% url 'console:schools' %}"><strong>{{ active_schools }}</strong><span>Active schools</span></a>
+  <a class="stat stat-coral" href="{% url 'console:schools' %}"><strong>{{ suspended_schools }}</strong><span>Suspended schools</span></a>
+</div>
+
+<h2>Recent activity</h2>
+{% include "console/_events.html" with events=recent_events %}
+<p><a href="{% url 'console:audit' %}">Full audit log</a></p>
+{% endblock %}

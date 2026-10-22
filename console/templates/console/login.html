@@ -1,0 +1,19 @@
+{% extends "console/base.html" %}
+{% block page_title %}Sign in{% endblock %}
+{% block content %}
+<div class="narrow">
+  <h1>Super admin sign in</h1>
+  <form method="post" class="form-card" novalidate>
+    {% csrf_token %}
+    {% if locked %}
+      <div class="alert alert-error" role="alert">Too many attempts. Wait 15 minutes and try again.</div>
+    {% elif form.non_field_errors %}
+      <div class="alert alert-error" role="alert">{{ form.non_field_errors }}</div>
+    {% endif %}
+    <div class="field">{{ form.username.as_field_group }}</div>
+    <div class="field">{{ form.password.as_field_group }}</div>
+    <input type="hidden" name="next" value="{{ next }}">
+    <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+  </form>
+</div>
+{% endblock %}

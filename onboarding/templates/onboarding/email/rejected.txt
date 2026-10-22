@@ -1,0 +1,12 @@
+{% load i18n %}{% autoescape off %}{% blocktranslate trimmed with name=app.admin_full_name %}Hello {{ name }},{% endblocktranslate %}
+
+{% blocktranslate trimmed with school=app.school_name %}Thank you for applying to bring {{ school }} to EduKenya. We were not able to approve the application this time.{% endblocktranslate %}
+
+{% translate "Reason given by our team:" %}
+
+{{ app.rejection_reason }}
+
+{% translate "You are welcome to apply again once this is resolved." %}
+
+EduKenya
+{% endautoescape %}

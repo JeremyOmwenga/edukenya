@@ -1,41 +1,10 @@
-{% extends "base.html" %}
+{% extends "public_base.html" %}
 {% load static i18n %}
 
 {% block title %}EduKenya | {% translate "Learning that fits you." %}{% endblock %}
 {% block meta_description %}{% translate "EduKenya is a smart learning buddy that explains every CBC topic in a way that makes sense to you, and checks you really get it before you move on." %}{% endblock %}
-{% block extra_head %}<link rel="stylesheet" href="{% static 'landing/css/style.css' %}">{% endblock %}
 
-{% block body %}
-{% get_current_language as LANGUAGE_CODE %}
-<a class="skip-link" href="#main">{% translate "Skip to main content" %}</a>
-
-<header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href="{% url 'landing:index' %}" aria-label="{% translate 'EduKenya home' %}">
-      <img src="{% static 'landing/img/logo-placeholder.svg' %}" alt="" width="40" height="40">
-      <span>EduKenya</span>
-    </a>
-
-    <nav class="main-nav" aria-label="{% translate 'Main' %}">
-      <a href="#how">{% translate "How it works" %}</a>
-      <a href="#features">{% translate "Features" %}</a>
-      <a href="#schools">{% translate "For schools" %}</a>
-    </nav>
-
-    <div class="header-actions">
-      <form class="lang-toggle" action="{% url 'set_language' %}" method="post" role="group" aria-label="{% translate 'Choose language' %}">
-        {% csrf_token %}
-        <input type="hidden" name="next" value="{{ request.get_full_path }}">
-        <button type="submit" name="language" value="en" lang="en" aria-pressed="{% if LANGUAGE_CODE == 'en' %}true{% else %}false{% endif %}">EN</button>
-        <button type="submit" name="language" value="sw" lang="sw" aria-pressed="{% if LANGUAGE_CODE == 'sw' %}true{% else %}false{% endif %}">SW</button>
-      </form>
-      {# TODO: point to the school registration flow once it exists #}
-      <a class="btn btn-primary btn-sm" href="#register">{% translate "Register your school" %}</a>
-    </div>
-  </div>
-</header>
-
-<main id="main">
+{% block content %}
 
   <!-- Hero -->
   <section class="hero">
@@ -47,7 +16,7 @@
         <h1>{% translate "Learning that fits you." %}</h1>
         <p class="lead">{% translate "EduKenya is a smart learning buddy that explains every CBC topic in a way that makes sense to you, and checks you really get it before you move on." %}</p>
         <div class="hero-ctas">
-          <a class="btn btn-primary" href="#register">{% translate "Register your school" %}</a>
+          <a class="btn btn-primary" href="{% url 'onboarding:register' %}">{% translate "Register your school" %}</a>
           <a class="btn btn-ghost" href="#how">{% translate "See how it works" %}</a>
         </div>
         <ul class="trust-row">
@@ -254,21 +223,7 @@
     <div class="container cta-inner">
       <h2 id="cta-title">{% translate "Bring EduKenya to your school" %}</h2>
       <p>{% translate "Set up your school in a few minutes. Every school gets its own private space." %}</p>
-      {# TODO: link to the school registration flow once it exists #}
-      <a class="btn btn-sun" href="#register">{% translate "Register your school" %}</a>
+      <a class="btn btn-sun" href="{% url 'onboarding:register' %}">{% translate "Register your school" %}</a>
     </div>
   </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="container footer-inner">
-    <div class="brand brand-footer">
-      <img src="{% static 'landing/img/logo-placeholder.svg' %}" alt="" width="32" height="32">
-      <span>EduKenya</span>
-    </div>
-    <p>{% translate "Learning that fits you." %}</p>
-    <p class="copyright">&copy; {% now "Y" %} EduKenya. {% translate "All rights reserved." %}</p>
-  </div>
-</footer>
 {% endblock %}

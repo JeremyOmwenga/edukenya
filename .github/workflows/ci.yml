@@ -1,0 +1,81 @@
+name: CI
+
+# Every push and pull request must pass all jobs before it can be merged to main
+# (enforced by branch protection, see docs/devops/github.md).
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read   # least privilege: CI can read code, nothing else
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: edukenya
+          POSTGRES_PASSWORD: ci-only-password
+          POSTGRES_DB: edukenya
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U edukenya"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+
+    env:
+      DJANGO_DEBUG: "1"
+      DJANGO_SECRET_KEY: ci-only-not-secret
+      EDUKENYA_BASE_DOMAIN: localhost
+      DB_NAME: edukenya
+      DB_USER: edukenya
+      DB_PASSWORD: ci-only-password
+      DB_HOST: 127.0.0.1
+      DB_PORT: "5432"
+      DJANGO_EMAIL_BACKEND: django.core.mail.backends.locmem.EmailBackend
+
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0   # full history so gitleaks scans every commit
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements*.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements-dev.txt
+
+      - name: Pre-commit hooks (secrets, large files, CloudFormation, translations)
+        env:
+          SKIP: no-commit-to-branch
+        run: pre-commit run --all-files --show-diff-on-failure
+
+      - name: Known-vulnerable dependencies
+        run: pip-audit -r requirements.txt --strict
+
+      - name: No missing migrations
+        run: python manage.py makemigrations --check --dry-run
+
+      - name: Tests
+        run: python manage.py test tests --noinput
+
+      - name: Production settings pass Django's deploy checks
+        env:
+          DJANGO_DEBUG: "0"
+          DJANGO_SECRET_KEY: ci-only-deploy-check-key-0123456789-abcdefghijklmnopqrstuvwxyz
+          EDUKENYA_BASE_DOMAIN: headybegone.dpdns.org
+          EDUKENYA_SITE_SCHEME: https
+          DB_SSLMODE: require
+          DJANGO_EMAIL_BACKEND: django_ses.SESBackend
+        run: python manage.py check --deploy --fail-level WARNING

@@ -1,0 +1,12 @@
+{% load i18n %}{% autoescape off %}{% blocktranslate trimmed with name=app.admin_full_name %}Hello {{ name }},{% endblocktranslate %}
+
+{% blocktranslate trimmed with school=app.school_name %}Thank you for registering {{ school }} on EduKenya. Please confirm your email address by opening this link:{% endblocktranslate %}
+
+{{ link }}
+
+{% blocktranslate trimmed %}The link works for {{ hours }} hours and can only be used once.{% endblocktranslate %}
+
+{% translate "If you did not register a school on EduKenya, you can ignore this email." %}
+
+EduKenya
+{% endautoescape %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% block title %}{% translate "Please try again" %} | EduKenya{% endblock %}
+{% block extra_head %}<meta name="robots" content="noindex"><link rel="stylesheet" href="{% static 'landing/css/style.css' %}">{% endblock %}
+{% block body %}
+<main id="main" class="page-form">
+  <div class="container narrow">
+    <div class="message-card">
+      <h1>{% translate "Please try again" %}</h1>
+      <p class="lead">{% translate "Your session expired or the form was out of date. Go back, refresh the page and try again." %}</p>
+    </div>
+  </div>
+</main>
+{% endblock %}

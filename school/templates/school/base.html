@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% block extra_head %}<link rel="stylesheet" href="{% static 'landing/css/style.css' %}">{% endblock %}
+{% block body %}
+<a class="skip-link" href="#main">{% translate "Skip to main content" %}</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="{% url 'school:home' %}">
+      <img src="{% static 'landing/img/logo-placeholder.svg' %}" alt="" width="40" height="40">
+      <span>{{ request.tenant.name }}</span>
+    </a>
+    <div class="header-actions">
+      {% include "partials/lang_toggle.html" %}
+      {% if user.is_authenticated %}
+        <form method="post" action="{% url 'school:logout' %}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-ghost btn-sm">{% translate "Sign out" %}</button>
+        </form>
+      {% endif %}
+    </div>
+  </div>
+</header>
+<main id="main" class="page-form">
+  {% block content %}{% endblock %}
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>{% translate "Powered by EduKenya" %}</p>
+  </div>
+</footer>
+{% endblock %}

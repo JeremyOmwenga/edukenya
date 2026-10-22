@@ -1,0 +1,98 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >
+  EduKenya email sending (Amazon SES). Creates a verified domain identity with
+  DKIM and a custom MAIL FROM domain, plus a least-privilege IAM user that the
+  Django app uses locally to send mail. DNS lives on Cloudflare, so the DNS
+  records this needs are printed in the Outputs tab for you to add by hand.
+
+Parameters:
+  DomainName:
+    Type: String
+    Description: Root domain you own on Cloudflare (e.g. edukenya.co.ke)
+    AllowedPattern: "^(?!-)[a-z0-9-]+(\\.[a-z0-9-]+)+$"
+    ConstraintDescription: Lowercase domain name, no http:// or trailing dot.
+  MailFromSubdomain:
+    Type: String
+    Default: mail
+    Description: Subdomain used as the MAIL FROM (bounce) domain, e.g. mail.<domain>
+
+Resources:
+  DomainIdentity:
+    Type: AWS::SES::EmailIdentity
+    Properties:
+      EmailIdentity: !Ref DomainName
+      DkimSigningAttributes:
+        NextSigningKeyLength: RSA_2048_BIT
+      MailFromAttributes:
+        MailFromDomain: !Sub "${MailFromSubdomain}.${DomainName}"
+        BehaviorOnMxFailure: USE_DEFAULT_VALUE
+      ConfigurationSetAttributes:
+        ConfigurationSetName: !Ref ConfigSet
+
+  ConfigSet:
+    Type: AWS::SES::ConfigurationSet
+    Properties:
+      Name: edukenya-default
+      ReputationOptions:
+        ReputationMetricsEnabled: true
+      SendingOptions:
+        SendingEnabled: true
+      SuppressionOptions:
+        # Stop sending to addresses that bounce or complain (protects your SES reputation)
+        SuppressedReasons: [BOUNCE, COMPLAINT]
+
+  # Used by the Django app on your laptop. On AWS the app will use an IAM role instead.
+  AppSenderUser:
+    Type: AWS::IAM::User
+    Properties:
+      UserName: edukenya-ses-sender
+      Policies:
+        - PolicyName: SendFromEduKenyaDomainOnly
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - ses:SendEmail
+                  - ses:SendRawEmail
+                Resource: "*"
+                Condition:
+                  StringLike:
+                    ses:FromAddress: !Sub "*@${DomainName}"
+
+Outputs:
+  Region:
+    Description: Put this in AWS_SES_REGION_NAME in your .env
+    Value: !Ref AWS::Region
+  SenderUser:
+    Description: Create an access key for this IAM user (see setup guide)
+    Value: !Ref AppSenderUser
+
+  Dkim1Name:
+    Description: "Cloudflare CNAME #1 name (DNS only, grey cloud)"
+    Value: !GetAtt DomainIdentity.DkimDNSTokenName1
+  Dkim1Value:
+    Description: "Cloudflare CNAME #1 target"
+    Value: !GetAtt DomainIdentity.DkimDNSTokenValue1
+  Dkim2Name:
+    Description: "Cloudflare CNAME #2 name (DNS only, grey cloud)"
+    Value: !GetAtt DomainIdentity.DkimDNSTokenName2
+  Dkim2Value:
+    Description: "Cloudflare CNAME #2 target"
+    Value: !GetAtt DomainIdentity.DkimDNSTokenValue2
+  Dkim3Name:
+    Description: "Cloudflare CNAME #3 name (DNS only, grey cloud)"
+    Value: !GetAtt DomainIdentity.DkimDNSTokenName3
+  Dkim3Value:
+    Description: "Cloudflare CNAME #3 target"
+    Value: !GetAtt DomainIdentity.DkimDNSTokenValue3
+
+  MailFromMx:
+    Description: "Cloudflare MX record: name / mail server / priority 10"
+    Value: !Sub "${MailFromSubdomain}.${DomainName}  ->  feedback-smtp.${AWS::Region}.amazonses.com  (priority 10)"
+  MailFromSpf:
+    Description: "Cloudflare TXT record on the MAIL FROM subdomain"
+    Value: !Sub "${MailFromSubdomain}.${DomainName}  ->  \"v=spf1 include:amazonses.com ~all\""
+  Dmarc:
+    Description: "Cloudflare TXT record (start relaxed, tighten later)"
+    Value: !Sub "_dmarc.${DomainName}  ->  \"v=DMARC1; p=none;\""

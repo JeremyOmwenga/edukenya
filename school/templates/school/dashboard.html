@@ -1,0 +1,15 @@
+{% extends "school/base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Dashboard" %} | {{ request.tenant.name }}{% endblock %}
+{% block content %}
+<div class="container narrow">
+  <div class="message-card">
+    <span class="message-icon mi-teal" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></svg>
+    </span>
+    <h1>{% blocktranslate trimmed with name=user.full_name %}Welcome, {{ name }}{% endblocktranslate %}</h1>
+    <p class="lead">{% blocktranslate trimmed with school=request.tenant.name %}You are signed in as the admin of {{ school }}.{% endblocktranslate %}</p>
+    <p>{% translate "Tools for adding teachers, parents and students are coming next." %}</p>
+  </div>
+</div>
+{% endblock %}

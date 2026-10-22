@@ -1,0 +1,20 @@
+{% extends "public_base.html" %}
+{% load i18n %}
+{% block title %}{% translate "Get a new confirmation link" %} | EduKenya{% endblock %}
+{% block main_class %}page-form{% endblock %}
+{% block content %}
+<div class="container narrow">
+  <div class="form-intro">
+    <h1>{% translate "Get a new confirmation link" %}</h1>
+    <p class="lead">{% translate "Enter the email you registered with. Any older links will stop working." %}</p>
+  </div>
+  <form method="post" class="form-card" novalidate>
+    {% csrf_token %}
+    {% for message in messages %}
+      <div class="alert alert-info" role="status">{{ message }}</div>
+    {% endfor %}
+    <div class="field">{{ form.email.as_field_group }}</div>
+    <button type="submit" class="btn btn-primary btn-block">{% translate "Send new link" %}</button>
+  </form>
+</div>
+{% endblock %}
